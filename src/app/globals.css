@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  /* 主色：活力藍綠（海洋、天空、探索） */
+  --color-brand-50: #ECFEFF;
+  --color-brand-100: #CFFAFE;
+  --color-brand-200: #A5F3FC;
+  --color-brand-300: #67E8F9;
+  --color-brand-400: #22D3EE;
+  --color-brand-500: #0891B2;
+  --color-brand-600: #0E7490;
+  --color-brand-700: #155E75;
+  --color-brand-800: #164E63;
+  --color-brand-900: #083344;
+
+  /* 輔色：珊瑚橘（溫暖、冒險、CTA） */
+  --color-accent-50: #FFF7ED;
+  --color-accent-100: #FFEDD5;
+  --color-accent-200: #FED7AA;
+  --color-accent-300: #FDBA74;
+  --color-accent-400: #FB923C;
+  --color-accent-500: #F97316;
+  --color-accent-600: #EA580C;
+  --color-accent-700: #C2410C;
+  --color-accent-800: #9A3412;
+  --color-accent-900: #7C2D12;
+
+  /* 金色：匯率/金額高亮 */
+  --color-gold-50: #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-500: #EAB308;
+  --color-gold-600: #CA8A04;
+
+  /* 警示：琥珀 */
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+
+  /* 危險：紅 */
+  --color-danger-50: #FEF2F2;
+  --color-danger-100: #FEE2E2;
+  --color-danger-500: #EF4444;
+  --color-danger-600: #DC2626;
+
+  /* 中性色 */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-500: #64748B;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+
+  /* 背景 */
+  --color-surface: #F0FDFA;
+  --color-surface-card: #FFFFFF;
+
+  /* 字體 */
+  --font-sans: var(--font-noto-sans-tc), var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-inter), var(--font-noto-sans-tc), system-ui, sans-serif;
+
+  /* 圓角 */
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-input: 10px;
+  --radius-tag: 20px;
+
+  /* 陰影 */
+  --shadow-card: 0 1px 3px rgba(8, 51, 68, 0.06), 0 1px 2px rgba(8, 51, 68, 0.04);
+  --shadow-card-hover: 0 10px 25px rgba(8, 51, 68, 0.1);
+}
+
+:root {
+  --background: #F0FDFA;
+  --foreground: #083344;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility card-base {
+  @apply bg-white rounded-[16px] shadow-[var(--shadow-card)] transition-shadow;
+}
+
+@utility card-hover {
+  @apply hover:shadow-[var(--shadow-card-hover)];
+}
