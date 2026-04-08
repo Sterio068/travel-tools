@@ -31,6 +31,7 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-white">關於我們</Link></li>
               <li><Link href="/articles" className="hover:text-white">旅遊攻略</Link></li>
               <li><Link href="/countries" className="hover:text-white">國家速查</Link></li>
+              <li><a href="mailto:sterio068@gmail.com" className="hover:text-white">聯絡我們</a></li>
             </ul>
           </div>
         </div>

@@ -35,6 +35,17 @@ export default function AboutPage() {
         <p>
           本站提供的所有資訊僅供參考。匯率會即時波動、各國規定可能隨時調整、航空公司行李政策也會變更。出發前請務必以各官方網站的最新資訊為準。
         </p>
+
+        <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">聯絡我們</h2>
+        <p>
+          如果你發現資料有誤、有功能建議，或有任何合作洽詢，歡迎來信：
+        </p>
+        <a
+          href="mailto:sterio068@gmail.com"
+          className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors"
+        >
+          ✉️ sterio068@gmail.com
+        </a>
       </div>
     </div>
   );
