@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import PowerBankChecker from "@/components/tools/PowerBankChecker";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -84,6 +86,8 @@ export default function PowerBankPage() {
             部分航空公司允許在飛行中使用，但也有航空公司全程禁止。建議出發前查閱航空公司相關規定。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["power-bank"]} />
       </div>
     </>
   );

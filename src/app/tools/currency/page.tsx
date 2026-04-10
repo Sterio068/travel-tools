@@ -3,8 +3,10 @@ import { buildPageMetadata } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import CurrencyConverter from "@/components/tools/CurrencyConverter";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "匯率換算機 - 台幣即時匯率換算",
@@ -71,6 +73,8 @@ export default function CurrencyPage() {
             除了兌換現金，信用卡海外刷卡也是常見的支付方式。多數信用卡會收取1.5%左右的海外交易手續費，但部分銀行提供海外消費回饋，實際成本可能比換現金更低。建議根據目的地的刷卡普及程度，搭配適量現金和信用卡使用。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["currency"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

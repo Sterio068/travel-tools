@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import FlightTimeChecker from "@/components/tools/FlightTimeChecker";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -76,6 +78,8 @@ export default function FlightTimePage() {
             小時以上，建議選擇舒適座位並準備娛樂與休息用品。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["flight-time"]} />
       </div>
     </>
   );

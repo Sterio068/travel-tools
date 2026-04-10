@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import TipCalculator from "@/components/tools/TipCalculator";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -98,6 +100,8 @@ export default function TipPage() {
             速食店、自助餐廳、外帶服務通常不需要給小費。此外，若服務品質明顯不佳，在多數國家降低小費比例也是可以接受的。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["tip"]} />
       </div>
     </>
   );

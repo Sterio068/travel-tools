@@ -3,7 +3,9 @@ import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { FaqSection } from "@/components/seo/FaqSection";
 import BudgetCalculator from "@/components/tools/BudgetCalculator";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "旅遊預算計算機 - 出國花費預估工具",
@@ -81,6 +83,8 @@ export default function BudgetPage() {
             選擇淡季或平日出發，機票和住宿通常較便宜。提前三到六個月預訂機票，往往能搶到優惠票價。善用旅遊信用卡的海外消費回饋，累積下來也是一筆可觀的節省。到當地後多利用大眾運輸和步行，既省錢又能深入體驗在地生活。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["budget"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

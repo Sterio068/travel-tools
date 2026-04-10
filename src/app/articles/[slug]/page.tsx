@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ShareButtons } from "@/components/share/ShareButtons";
 import { ARTICLES, CATEGORY_LABELS, CATEGORY_COLORS, getRelatedArticles } from "@/lib/articles";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, articleSchema, SITE_URL } from "@/lib/seo";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -27,6 +29,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound();
 
   const related = getRelatedArticles(slug, 3);
+  const articleUrl = `${SITE_URL}/articles/${slug}`;
 
   let Content;
   try {
@@ -37,6 +40,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <JsonLd
+        data={articleSchema({
+          title: article.title,
+          description: article.description,
+          path: `/articles/${slug}`,
+          publishedAt: article.publishedAt,
+          updatedAt: article.updatedAt,
+        })}
+      />
       <Breadcrumb items={[
         { label: "首頁", href: "/" },
         { label: "旅遊攻略", href: "/articles" },
@@ -60,6 +72,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <div className="prose-travel">
           <Content />
         </div>
+
+        <ShareButtons title={article.title} url={articleUrl} />
       </article>
 
       <AdBanner slot="article-bottom" />

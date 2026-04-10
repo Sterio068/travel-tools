@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import TaxRefundCalculator from "@/components/tools/TaxRefundCalculator";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -88,6 +90,8 @@ export default function TaxRefundPage() {
             Free）會收取手續費，實際退稅金額通常低於法定退稅比例。建議事先了解各國退稅規定，選擇手續費較低的退稅管道。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["tax-refund"]} />
       </div>
     </>
   );

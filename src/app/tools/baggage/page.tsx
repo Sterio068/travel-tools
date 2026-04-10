@@ -3,7 +3,9 @@ import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { FaqSection } from "@/components/seo/FaqSection";
 import BaggageChecker from "@/components/tools/BaggageChecker";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "行李規定速查 - 各航空公司行李限制一覽",
@@ -82,6 +84,8 @@ export default function BaggagePage() {
             如果到機場才發現行李超重，各航空公司的超重費計算方式不同，但通常都相當昂貴。建議出發前在家先用行李秤確認重量，並預留一些餘裕給回程的伴手禮。若真的超重，可以嘗試穿上最重的衣物、將重物移至手提行李（注意不要超過手提限重），或者當場在機場寄送包裹回家。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["baggage"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

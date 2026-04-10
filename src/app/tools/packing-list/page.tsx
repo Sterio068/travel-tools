@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { webApplicationSchema } from "@/lib/seo";
 import PackingListGenerator from "@/components/tools/PackingListGenerator";
@@ -87,6 +89,8 @@ export default function PackingListPage() {
             根據經驗，最容易被遺忘的物品包括：萬用轉接頭、常備藥品、原子筆（填入境卡用）、夾鏈袋（液體分裝）、以及護照影本（建議與正本分開放，另存一份電子檔在手機）。出發前對照清單再檢查一次，可以大幅降低遺漏的機率。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["packing-list"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import CustomsChecker from "@/components/tools/CustomsChecker";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -72,6 +74,8 @@ export default function CustomsPage() {
             入出境時如有需申報物品，請走「紅線」（應申報）通道，填寫海關申報單後交由海關人員查驗。無須申報者走「綠線」（免申報）通道即可。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["customs"]} />
       </div>
     </>
   );

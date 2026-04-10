@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import TravelInsuranceGuide from "@/components/tools/TravelInsuranceGuide";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -77,6 +79,8 @@ export default function TravelInsurancePage() {
             <li>回國後盡早申請理賠，注意理賠申請期限。</li>
           </ul>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["travel-insurance"]} />
       </div>
     </>
   );

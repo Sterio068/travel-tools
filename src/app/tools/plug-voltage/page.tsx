@@ -3,8 +3,10 @@ import { buildPageMetadata } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import PlugVoltageChecker from "@/components/tools/PlugVoltageChecker";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "插頭 / 電壓查詢 - 各國插座規格與轉接頭指南",
@@ -98,6 +100,8 @@ export default function PlugVoltagePage() {
             100Wh / 27,000mAh 以下），且行動電源必須隨身攜帶，不能託運。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["plug-voltage"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

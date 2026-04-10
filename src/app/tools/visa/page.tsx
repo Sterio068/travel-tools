@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
 import VisaChecker from "@/components/tools/VisaChecker";
 import { webApplicationSchema } from "@/lib/seo";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = {
   title: "簽證需求查詢 — 台灣護照免簽國家一覽",
@@ -109,6 +111,8 @@ export default function VisaPage() {
             即使是免簽國家，入境時海關仍有權拒絕入境。保持良好的旅行紀錄、攜帶完整的旅行文件、誠實回答海關問題，是順利入境的不二法門。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["visa"]} />
       </div>
     </>
   );

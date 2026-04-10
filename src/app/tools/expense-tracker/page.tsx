@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 import ExpenseTracker from "@/components/tools/ExpenseTracker";
 import { webApplicationSchema } from "@/lib/seo";
 
@@ -80,6 +82,8 @@ export default function ExpenseTrackerPage() {
             本工具使用靜態參考匯率進行換算，僅供預算估算參考，不代表即時匯率。實際花費金額請以信用卡帳單或銀行匯率為準。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["expense-tracker"]} />
       </div>
     </>
   );

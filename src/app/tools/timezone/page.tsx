@@ -3,8 +3,10 @@ import { buildPageMetadata } from "@/lib/seo";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import TimezoneChecker from "@/components/tools/TimezoneChecker";
+import { TOOL_FAQS } from "@/data/tool-faqs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "時差查詢 - 世界各國時差換算",
@@ -75,6 +77,8 @@ export default function TimezonePage() {
             出發前先用時差查詢工具確認目的地的當地時間，可以幫助你更好地規劃行程。例如預訂餐廳、安排導覽、或是和在台灣的家人視訊通話，都需要對照雙方的時間。建議將常去的國家時間加入手機的世界時鐘，方便隨時查看。
           </p>
         </article>
+
+        <FaqSection faqs={TOOL_FAQS["timezone"]} />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>
