@@ -11,14 +11,14 @@ export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       {/* Hero */}
-      <section className="text-center mb-12 md:mb-16">
+      <section className="text-center mb-10 md:mb-12">
         <h1 className="text-4xl md:text-5xl font-extrabold text-brand-900 mb-4 leading-tight">
           出國旅遊，一站搞定 ✈️
         </h1>
         <p className="text-lg md:text-xl text-brand-700 max-w-2xl mx-auto mb-6">
           匯率換算、行李規定、時差查詢、旅遊預算⋯⋯台灣旅客出國前的免費實用工具站
         </p>
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-center gap-3 mb-8">
           <Link
             href="/tools"
             className="inline-flex items-center px-6 py-3 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors shadow-sm hover:shadow-md"
@@ -31,6 +31,44 @@ export default function HomePage() {
           >
             查詢國家資訊
           </Link>
+        </div>
+        {/* Stats bar */}
+        <div className="flex justify-center gap-6 md:gap-12">
+          {[
+            { value: "15", label: "免費工具" },
+            { value: "20", label: "國家速查卡" },
+            { value: "25", label: "旅遊攻略" },
+          ].map(({ value, label }) => (
+            <div key={label} className="text-center">
+              <div className="text-2xl md:text-3xl font-extrabold text-brand-600">{value}</div>
+              <div className="text-xs md:text-sm text-slate-500 mt-0.5">{label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 熱門快捷搜尋 */}
+      <section className="mb-10 md:mb-12">
+        <h2 className="text-sm font-semibold text-slate-500 mb-3 text-center tracking-wide">熱門查詢</h2>
+        <div className="flex flex-wrap justify-center gap-2">
+          {[
+            { label: "💱 日幣匯率", href: "/tools/currency" },
+            { label: "🧳 手提行李限制", href: "/tools/baggage" },
+            { label: "🕐 日本時差", href: "/tools/timezone" },
+            { label: "🛂 台灣護照免簽", href: "/tools/visa" },
+            { label: "🔌 日本插頭", href: "/tools/plug-voltage" },
+            { label: "🧾 日本退稅", href: "/tools/tax-refund" },
+            { label: "🔋 行動電源上飛機", href: "/tools/power-bank" },
+            { label: "💵 美國小費", href: "/tools/tip" },
+          ].map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              className="px-3 py-1.5 bg-white rounded-full text-sm text-brand-700 font-medium border border-brand-100 hover:bg-brand-50 hover:border-brand-300 transition-colors shadow-sm"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </section>
 

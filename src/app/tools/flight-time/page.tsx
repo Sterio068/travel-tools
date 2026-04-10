@@ -3,6 +3,7 @@ import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 import FlightTimeChecker from "@/components/tools/FlightTimeChecker";
 import { webApplicationSchema } from "@/lib/seo";
 

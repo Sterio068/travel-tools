@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import PlugVoltageChecker from "@/components/tools/PlugVoltageChecker";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "插頭 / 電壓查詢 - 各國插座規格與轉接頭指南",
@@ -102,6 +103,8 @@ export default function PlugVoltagePage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["plug-voltage"]} />
+
+        <RelatedTools currentHref="/tools/plug-voltage" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

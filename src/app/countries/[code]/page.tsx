@@ -253,6 +253,18 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
             <span className="text-2xl block mb-1">📋</span>
             <span className="text-sm font-medium text-brand-700">打包清單</span>
           </Link>
+          <Link href="/tools/visa" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+            <span className="text-2xl block mb-1">🛂</span>
+            <span className="text-sm font-medium text-brand-700">{country.nameZh}簽證查詢</span>
+          </Link>
+          <Link href="/tools/tax-refund" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+            <span className="text-2xl block mb-1">🧾</span>
+            <span className="text-sm font-medium text-brand-700">{country.nameZh}退稅計算</span>
+          </Link>
+          <Link href="/tools/flight-time" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+            <span className="text-2xl block mb-1">✈️</span>
+            <span className="text-sm font-medium text-brand-700">飛{country.nameZh}幾小時？</span>
+          </Link>
         </div>
       </div>
 

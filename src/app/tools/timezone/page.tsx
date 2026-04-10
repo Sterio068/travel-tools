@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import TimezoneChecker from "@/components/tools/TimezoneChecker";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "時差查詢 - 世界各國時差換算",
@@ -79,6 +80,8 @@ export default function TimezonePage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["timezone"]} />
+
+        <RelatedTools currentHref="/tools/timezone" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

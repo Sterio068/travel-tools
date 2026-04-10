@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { webApplicationSchema } from "@/lib/seo";
 import PackingListGenerator from "@/components/tools/PackingListGenerator";
@@ -91,6 +92,8 @@ export default function PackingListPage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["packing-list"]} />
+
+        <RelatedTools currentHref="/tools/packing-list" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

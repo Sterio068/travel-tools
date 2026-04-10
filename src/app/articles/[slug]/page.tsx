@@ -5,7 +5,21 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { ShareButtons } from "@/components/share/ShareButtons";
 import { ARTICLES, CATEGORY_LABELS, CATEGORY_COLORS, getRelatedArticles } from "@/lib/articles";
 import { buildPageMetadata, articleSchema, SITE_URL } from "@/lib/seo";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 import Link from "next/link";
+
+const CATEGORY_TOOLS: Record<string, string[]> = {
+  currency: ["/tools/currency", "/tools/best-exchange", "/tools/tax-refund"],
+  visa: ["/tools/visa", "/countries", "/tools/travel-insurance"],
+  packing: ["/tools/packing-list", "/tools/baggage", "/tools/power-bank"],
+  transport: ["/tools/flight-time", "/tools/timezone"],
+  insurance: ["/tools/travel-insurance", "/tools/visa", "/tools/budget"],
+  budget: ["/tools/budget", "/tools/currency", "/tools/expense-tracker"],
+  destination: ["/countries", "/tools/timezone", "/tools/plug-voltage"],
+  tips: ["/tools/packing-list", "/tools/customs", "/tools/budget"],
+  safety: ["/tools/travel-insurance", "/tools/visa", "/tools/baggage"],
+  tech: ["/tools/plug-voltage", "/tools/power-bank"],
+};
 
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));
@@ -75,6 +89,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <ShareButtons title={article.title} url={articleUrl} />
       </article>
+
+      <RelatedTools
+        currentHref={`/articles/${slug}`}
+        relatedHrefs={CATEGORY_TOOLS[article.category] ?? []}
+      />
 
       <AdBanner slot="article-bottom" />
 

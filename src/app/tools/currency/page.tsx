@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/seo/FaqSection";
 import { webApplicationSchema } from "@/lib/seo";
 import CurrencyConverter from "@/components/tools/CurrencyConverter";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "匯率換算機 - 台幣即時匯率換算",
@@ -75,6 +76,8 @@ export default function CurrencyPage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["currency"]} />
+
+        <RelatedTools currentHref="/tools/currency" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

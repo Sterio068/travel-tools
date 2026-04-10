@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { FaqSection } from "@/components/seo/FaqSection";
 import BaggageChecker from "@/components/tools/BaggageChecker";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "行李規定速查 - 各航空公司行李限制一覽",
@@ -86,6 +87,8 @@ export default function BaggagePage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["baggage"]} />
+
+        <RelatedTools currentHref="/tools/baggage" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

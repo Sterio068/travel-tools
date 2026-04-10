@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { FaqSection } from "@/components/seo/FaqSection";
 import BudgetCalculator from "@/components/tools/BudgetCalculator";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "旅遊預算計算機 - 出國花費預估工具",
@@ -85,6 +86,8 @@ export default function BudgetPage() {
         </article>
 
         <FaqSection faqs={TOOL_FAQS["budget"]} />
+
+        <RelatedTools currentHref="/tools/budget" />
 
         <AdBanner slot="tool-bottom" className="mt-12" />
       </div>

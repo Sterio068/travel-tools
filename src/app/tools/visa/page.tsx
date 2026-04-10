@@ -5,6 +5,7 @@ import { FaqSection } from "@/components/seo/FaqSection";
 import VisaChecker from "@/components/tools/VisaChecker";
 import { webApplicationSchema } from "@/lib/seo";
 import { TOOL_FAQS } from "@/data/tool-faqs";
+import { RelatedTools } from "@/components/tools/RelatedTools";
 
 export const metadata: Metadata = {
   title: "簽證需求查詢 — 台灣護照免簽國家一覽",
