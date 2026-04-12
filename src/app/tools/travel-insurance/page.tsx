@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import TravelInsuranceGuide from "@/components/tools/TravelInsuranceGuide";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "旅遊保險比較 | 旅平險、不便險、信用卡險完整解析",
-  description:
-    "比較旅平險、不便險與信用卡旅遊險的保障範圍與費用，附投保前確認清單，幫你選擇最適合的旅遊保險組合。",
-};
+export const metadata = buildPageMetadata({
+  title: "旅遊保險怎麼選？旅平險、不便險完整比較 2026",
+  description: "比較旅平險、不便險與信用卡旅遊險的保障範圍與費用，附投保前確認清單。出國必備旅遊保險選購指南。",
+  path: "/tools/travel-insurance",
+  keywords: ["旅平險", "旅遊保險", "不便險", "保險比較", "出國保險", "旅遊意外險", "信用卡旅遊險"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "旅遊保險比較",

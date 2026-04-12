@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import VisaChecker from "@/components/tools/VisaChecker";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 
-export const metadata: Metadata = {
-  title: "簽證需求查詢 — 台灣護照免簽國家一覽",
-  description:
-    "查詢台灣護照持有人前往各國的簽證需求，包含免簽天數、入境條件等資訊，出國前必看。",
-};
+export const metadata = buildPageMetadata({
+  title: "台灣護照免簽國家查詢 2026｜簽證需求一覽表",
+  description: "查詢台灣護照持有人前往各國的簽證需求，包含免簽天數、入境條件。日本、韓國、歐洲、美國、東南亞免簽資訊一次看。",
+  path: "/tools/visa",
+  keywords: ["簽證查詢", "台灣護照免簽", "免簽國家", "台灣護照可以去哪些國家", "visa", "入境條件", "停留天數"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "簽證需求查詢",

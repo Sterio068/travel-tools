@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import ExpenseTracker from "@/components/tools/ExpenseTracker";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "行程花費追蹤 | 旅行記帳工具，自動換算台幣",
-  description:
-    "記錄旅行中的每筆花費，依分類統計並自動換算台幣金額。支援多國貨幣，資料儲存在瀏覽器中不怕遺失。",
-};
+export const metadata = buildPageMetadata({
+  title: "旅遊記帳工具｜旅行花費追蹤，多幣別自動換算",
+  description: "記錄旅行中的每筆花費，依分類統計並自動換算台幣。支援日圓、韓元、美元等多國貨幣，資料存在瀏覽器不需註冊。",
+  path: "/tools/expense-tracker",
+  keywords: ["旅遊記帳", "旅行花費追蹤", "出國花費", "旅遊支出統計", "記帳app", "多幣別換算"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "行程花費追蹤",

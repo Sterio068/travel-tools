@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import TipCalculator from "@/components/tools/TipCalculator";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "小費計算機 — 各國小費習慣與金額試算",
-  description:
-    "出國旅遊不知道該給多少小費？輸入國家與帳單金額，立即了解當地小費文化與建議金額。",
-};
+export const metadata = buildPageMetadata({
+  title: "小費計算機｜美國、歐洲各國小費怎麼給？",
+  description: "出國旅遊不知道給多少小費？輸入國家與帳單金額立即計算建議金額，含美國、歐洲、東南亞各國小費文化說明。",
+  path: "/tools/tip",
+  keywords: ["小費計算", "美國小費", "日本小費", "歐洲小費", "tip calculator", "餐廳小費", "小費怎麼給"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "小費計算機",

@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import TaxRefundCalculator from "@/components/tools/TaxRefundCalculator";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "退稅計算機 — 各國退稅金額試算",
-  description:
-    "快速計算各國旅遊購物退稅金額，包含最低消費門檻、退稅比例與注意事項，讓你出國購物不吃虧。",
-};
+export const metadata = buildPageMetadata({
+  title: "退稅計算機｜日本、韓國、歐洲購物退稅金額試算",
+  description: "快速計算各國旅遊購物退稅金額，包含最低消費門檻與退稅比例。日本、韓國、歐洲退稅怎麼算？一鍵試算不吃虧。",
+  path: "/tools/tax-refund",
+  keywords: ["退稅計算", "日本退稅", "歐洲退稅", "韓國退稅", "Tax Refund", "免稅", "購物退稅"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "退稅計算機",

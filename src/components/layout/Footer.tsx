@@ -35,7 +35,23 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 pt-6 border-t border-brand-700 text-xs text-brand-400 flex flex-col sm:flex-row items-center justify-between gap-2">
+        {/* 電子報訂閱 */}
+        <div className="mt-10 pt-8 border-t border-brand-700">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-semibold text-brand-100 mb-1">訂閱旅遊資訊更新</h3>
+              <p className="text-sm text-brand-300">最新匯率趨勢、免簽政策變動、旅遊攻略，不定期寄送</p>
+            </div>
+            <a
+              href="mailto:sterio068@gmail.com?subject=訂閱旅遊實用工具站更新&body=您好，我想訂閱旅遊實用工具站的更新通知。"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-brand-500 hover:bg-brand-400 text-white text-sm font-semibold transition-colors"
+            >
+              ✉️ 訂閱更新
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-brand-700 text-xs text-brand-400 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>
             © {new Date().getFullYear()} 旅遊實用工具站 · 本站內容僅供參考，出發前請以官方資訊為準
           </p>

@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import FlightTimeChecker from "@/components/tools/FlightTimeChecker";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "飛行時間查詢 | 從台灣出發各國飛行時數一覽",
-  description:
-    "查詢從台灣出發到世界各國的飛行時間，依短程、中程、長程分類，快速比較各目的地航程時數。",
-};
+export const metadata = buildPageMetadata({
+  title: "台灣飛各國飛行時間查詢｜直飛幾小時一覽",
+  description: "查詢從台灣出發到世界各國的飛行時間，日本2-3小時、歐洲13-14小時、美國14-16小時。直飛與轉機時間比較。",
+  path: "/tools/flight-time",
+  keywords: ["飛行時間", "台灣飛日本幾小時", "台灣飛歐洲", "台灣飛美國", "直飛時間", "飛行時數", "航班時間"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "飛行時間查詢",

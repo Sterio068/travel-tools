@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import PowerBankChecker from "@/components/tools/PowerBankChecker";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema, howToSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = {
-  title: "行動電源規定查詢 — 搭飛機可以帶行動電源嗎？",
-  description:
-    "輸入行動電源容量，立即查詢是否符合航空公司登機規定。含常見行動電源 Wh 對照表及鋰電池攜帶須知。",
-};
+export const metadata = buildPageMetadata({
+  title: "行動電源可以帶上飛機嗎？Wh換算＋航空規定查詢",
+  description: "輸入行動電源mAh容量，立即換算Wh並查詢是否符合航空規定。100Wh/160Wh限制說明，常見行動電源型號對照。",
+  path: "/tools/power-bank",
+  keywords: ["行動電源上飛機", "電池Wh換算", "mAh換算Wh", "行動電源規定", "鋰電池航空", "行動電源託運", "100Wh"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "行動電源規定查詢",
@@ -20,13 +21,22 @@ const jsonLd = webApplicationSchema({
   path: "/tools/power-bank",
 });
 
+const howToJsonLd = howToSchema({
+  name: "如何確認行動電源可以帶上飛機",
+  description: "透過 mAh 換算 Wh，依航空規定判斷行動電源是否可攜帶登機",
+  steps: [
+    { name: "查看行動電源容量", text: "找到行動電源背面標示的 mAh 數值（如 20000mAh）" },
+    { name: "換算 Wh", text: "計算公式：Wh = mAh × 3.7 ÷ 1000。例如 20000mAh = 74Wh" },
+    { name: "對照限制標準", text: "100Wh 以下可自由攜帶；100-160Wh 需航空公司同意；160Wh 以上禁止上機" },
+    { name: "確認攜帶方式", text: "行動電源一律禁止託運，必須隨身攜帶放手提行李" },
+  ],
+});
+
 export default function PowerBankPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={howToJsonLd} />
       <div className="mx-auto max-w-3xl px-4 py-8">
         <Breadcrumb
           items={[

@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { FaqSection } from "@/components/seo/FaqSection";
 import { TOOL_FAQS } from "@/data/tool-faqs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import CustomsChecker from "@/components/tools/CustomsChecker";
-import { webApplicationSchema } from "@/lib/seo";
+import { buildPageMetadata, webApplicationSchema, howToSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-export const metadata: Metadata = {
-  title: "入境攜帶物品查詢 — 台灣海關規定速查",
-  description:
-    "快速查詢台灣入出境攜帶物品規定，包含免稅額度、菸酒限量、現金申報、禁止攜帶品等海關法規。",
-};
+export const metadata = buildPageMetadata({
+  title: "台灣海關規定速查｜入境可帶什麼？免稅額度一覽",
+  description: "快速查詢台灣入出境攜帶物品規定，包含免稅額度、菸酒限量、現金申報門檻、禁止攜帶品清單。",
+  path: "/tools/customs",
+  keywords: ["台灣海關", "入境規定", "免稅額度", "攜帶現金", "禁止攜帶", "海關申報", "菸酒限量"],
+});
 
 const jsonLd = webApplicationSchema({
   name: "入境攜帶物品查詢",
@@ -20,13 +21,22 @@ const jsonLd = webApplicationSchema({
   path: "/tools/customs",
 });
 
+const howToJsonLd = howToSchema({
+  name: "如何查詢台灣入境海關規定",
+  description: "出國前了解台灣入境攜帶物品規定，避免違規被罰款或沒收",
+  steps: [
+    { name: "確認攜帶物品", text: "整理旅途中購買或準備帶回的物品清單" },
+    { name: "查詢限量規定", text: "使用工具查看菸酒免稅額度、現金申報門檻及禁止攜帶品清單" },
+    { name: "超量物品申報", text: "超過免稅額度的物品須走紅線通道主動申報，繳納稅款" },
+    { name: "禁止攜帶品處理", text: "肉類製品、新鮮水果等禁止攜帶入境，出發前先消耗或丟棄" },
+  ],
+});
+
 export default function CustomsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={howToJsonLd} />
       <div className="mx-auto max-w-3xl px-4 py-8">
         <Breadcrumb
           items={[
