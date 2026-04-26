@@ -98,6 +98,8 @@ export default function PowerBankPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/power-bank" />
+
         <FaqSection faqs={TOOL_FAQS["power-bank"]} />
       </div>
     </>

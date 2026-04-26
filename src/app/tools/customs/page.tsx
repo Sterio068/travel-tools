@@ -86,6 +86,8 @@ export default function CustomsPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/customs" />
+
         <FaqSection faqs={TOOL_FAQS["customs"]} />
       </div>
     </>

@@ -92,6 +92,8 @@ export default function TaxRefundPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/tax-refund" />
+
         <FaqSection faqs={TOOL_FAQS["tax-refund"]} />
       </div>
     </>

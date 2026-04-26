@@ -113,6 +113,8 @@ export default function VisaPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/visa" />
+
         <FaqSection faqs={TOOL_FAQS["visa"]} />
       </div>
     </>

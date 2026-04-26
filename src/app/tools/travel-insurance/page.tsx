@@ -81,6 +81,8 @@ export default function TravelInsurancePage() {
           </ul>
         </article>
 
+        <RelatedTools currentHref="/tools/travel-insurance" />
+
         <FaqSection faqs={TOOL_FAQS["travel-insurance"]} />
       </div>
     </>

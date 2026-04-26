@@ -90,6 +90,8 @@ export default function BestExchangePage() {
           </ul>
         </article>
 
+        <RelatedTools currentHref="/tools/best-exchange" />
+
         <FaqSection faqs={TOOL_FAQS["best-exchange"]} />
       </div>
     </>

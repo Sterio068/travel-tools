@@ -80,6 +80,8 @@ export default function FlightTimePage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/flight-time" />
+
         <FaqSection faqs={TOOL_FAQS["flight-time"]} />
       </div>
     </>

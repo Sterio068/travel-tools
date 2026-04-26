@@ -84,6 +84,8 @@ export default function ExpenseTrackerPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/expense-tracker" />
+
         <FaqSection faqs={TOOL_FAQS["expense-tracker"]} />
       </div>
     </>

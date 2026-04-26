@@ -102,6 +102,8 @@ export default function TipPage() {
           </p>
         </article>
 
+        <RelatedTools currentHref="/tools/tip" />
+
         <FaqSection faqs={TOOL_FAQS["tip"]} />
       </div>
     </>
