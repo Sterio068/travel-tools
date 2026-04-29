@@ -52,7 +52,7 @@ export default function CustomsPage() {
 
         <CustomsChecker />
 
-        <AdBanner className="my-8" />
+        <AdBanner slot="tool-bottom" className="my-8" />
 
         <article className="prose prose-gray max-w-none">
           <h2>台灣海關攜帶物品規定須知</h2>

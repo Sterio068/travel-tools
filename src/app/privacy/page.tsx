@@ -21,6 +21,10 @@ export default function PrivacyPage() {
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">Cookie 使用</h2>
         <p>本站使用 Google Analytics 和 Google AdSense 的 Cookie。這些 Cookie 用於分析網站流量和提供相關廣告。您可以透過瀏覽器設定管理或停用 Cookie。</p>
+        <p>
+          Google 可能依照使用者的瀏覽器、裝置、廣告設定與其他訊號顯示個人化或非個人化廣告。
+          你可以透過 Google 廣告設定或瀏覽器隱私設定管理廣告個人化與 Cookie。
+        </p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">第三方服務</h2>
         <ul className="list-disc pl-6 space-y-2">
@@ -30,7 +34,7 @@ export default function PrivacyPage() {
         </ul>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">聯絡我們</h2>
-        <p>如對隱私權政策有任何疑問，歡迎透過網站上的聯絡方式與我們聯繫。</p>
+        <p>如對隱私權政策有任何疑問，歡迎透過聯絡頁與我們聯繫。</p>
       </div>
     </div>
   );

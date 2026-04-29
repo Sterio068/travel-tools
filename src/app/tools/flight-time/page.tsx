@@ -43,7 +43,7 @@ export default function FlightTimePage() {
 
         <FlightTimeChecker />
 
-        <AdBanner className="my-8" />
+        <AdBanner slot="tool-bottom" className="my-8" />
 
         <article className="prose prose-gray max-w-none">
           <h2>搭長途飛機的實用建議</h2>

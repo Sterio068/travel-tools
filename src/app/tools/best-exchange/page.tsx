@@ -52,7 +52,7 @@ export default function BestExchangePage() {
 
         <BestExchangeCalculator />
 
-        <AdBanner className="my-8" />
+        <AdBanner slot="tool-bottom" className="my-8" />
 
         <article className="prose prose-gray max-w-none">
           <h2>出國換匯怎麼換最划算？</h2>

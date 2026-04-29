@@ -52,7 +52,7 @@ export default function PowerBankPage() {
 
         <PowerBankChecker />
 
-        <AdBanner className="my-8" />
+        <AdBanner slot="tool-bottom" className="my-8" />
 
         <article className="prose prose-gray max-w-none">
           <h2>搭飛機可以帶行動電源嗎？完整規定說明</h2>

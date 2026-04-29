@@ -43,7 +43,7 @@ export default function TravelInsurancePage() {
 
         <TravelInsuranceGuide />
 
-        <AdBanner className="my-8" />
+        <AdBanner slot="tool-bottom" className="my-8" />
 
         <article className="prose prose-gray max-w-none">
           <h2>旅遊保險怎麼選？</h2>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 
 interface InsuranceType {
@@ -227,14 +228,12 @@ export default function TravelInsuranceGuide() {
         <p className="mb-4 text-sm text-gray-600">
           建議至少投保旅平險＋不便險，讓旅途更安心。
         </p>
-        <a
-          href="/go/insurance"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/articles/travel-insurance-guide"
           className="inline-flex items-center px-6 py-3 rounded-[12px] bg-accent-500 text-white font-semibold hover:bg-accent-600 transition-colors"
         >
-          立即比較保險方案 →
-        </a>
+          閱讀投保指南 →
+        </Link>
       </Card>
     </div>
   );

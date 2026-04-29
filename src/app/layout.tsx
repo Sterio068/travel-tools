@@ -5,11 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ADSENSE_CLIENT_ID, GOOGLE_ANALYTICS_ID, SITE_URL } from "@/lib/env";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,8 +22,6 @@ const notoSansTC = Noto_Sans_TC({
   weight: ["400", "500", "700"],
   display: "swap",
 });
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -90,21 +86,21 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#F0FDFA] text-brand-900">
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
-        {GA_ID && (
+        {GOOGLE_ANALYTICS_ID && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
               strategy="afterInteractive"
             />
             <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${GA_ID}');`}
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${GOOGLE_ANALYTICS_ID}');`}
             </Script>
           </>
         )}
-        {ADSENSE_ID && (
+        {ADSENSE_CLIENT_ID && (
           <Script
             async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`}
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
             crossOrigin="anonymous"
             strategy="afterInteractive"
           />

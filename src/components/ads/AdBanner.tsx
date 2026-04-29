@@ -1,17 +1,43 @@
+"use client";
+
+import { useEffect } from "react";
+import { ADSENSE_CLIENT_ID, resolveAdSenseSlot } from "@/lib/env";
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
+
 interface AdBannerProps {
   slot?: string;
   format?: "horizontal" | "square" | "vertical" | "auto";
   className?: string;
 }
 
-const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
-
 export function AdBanner({
   slot,
   format = "auto",
   className = "",
 }: AdBannerProps) {
-  if (!ADSENSE_ID || !slot) {
+  const resolvedSlot = resolveAdSenseSlot(slot);
+
+  useEffect(() => {
+    if (!ADSENSE_CLIENT_ID || !resolvedSlot) {
+      return;
+    }
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.warn("Unable to render AdSense unit.", error);
+      }
+    }
+  }, [resolvedSlot]);
+
+  if (!ADSENSE_CLIENT_ID || !resolvedSlot) {
     if (process.env.NODE_ENV === "development") {
       return (
         <div
@@ -37,8 +63,8 @@ export function AdBanner({
       <ins
         className={`adsbygoogle block ${heights[format]}`}
         style={{ display: "block" }}
-        data-ad-client={ADSENSE_ID}
-        data-ad-slot={slot}
+        data-ad-client={ADSENSE_CLIENT_ID}
+        data-ad-slot={resolvedSlot}
         data-ad-format={format === "auto" ? "auto" : undefined}
         data-full-width-responsive="true"
       />

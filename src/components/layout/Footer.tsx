@@ -31,7 +31,8 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-white">關於我們</Link></li>
               <li><Link href="/articles" className="hover:text-white">旅遊攻略</Link></li>
               <li><Link href="/countries" className="hover:text-white">國家速查</Link></li>
-              <li><a href="mailto:sterio068@gmail.com" className="hover:text-white">聯絡我們</a></li>
+              <li><Link href="/editorial-policy" className="hover:text-white">資料來源與編輯政策</Link></li>
+              <li><Link href="/contact" className="hover:text-white">聯絡我們</Link></li>
             </ul>
           </div>
         </div>
@@ -55,9 +56,10 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} 旅遊實用工具站 · 本站內容僅供參考，出發前請以官方資訊為準
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link href="/privacy" className="hover:text-white">隱私權政策</Link>
             <Link href="/terms" className="hover:text-white">服務條款</Link>
+            <Link href="/contact" className="hover:text-white">聯絡我們</Link>
           </div>
         </div>
       </div>

@@ -30,6 +30,15 @@ export default function AboutPage() {
           <li>簽證資訊：外交部領事事務局</li>
           <li>國家資訊：各國官方旅遊網站</li>
         </ul>
+        <p>
+          更完整的查核方式與廣告揭露，請參考本站的資料來源與編輯政策。
+        </p>
+
+        <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">營運方式</h2>
+        <p>
+          本站以免費工具和旅遊資訊服務讀者，可能透過廣告或合作內容支持網站維運。
+          廣告不會影響旅遊資訊的整理原則，本站也不會要求或鼓勵使用者點擊廣告。
+        </p>
 
         <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">免責聲明</h2>
         <p>
@@ -41,10 +50,10 @@ export default function AboutPage() {
           如果你發現資料有誤、有功能建議，或有任何合作洽詢，歡迎來信：
         </p>
         <a
-          href="mailto:sterio068@gmail.com"
+          href="/contact"
           className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors"
         >
-          ✉️ sterio068@gmail.com
+          前往聯絡頁
         </a>
       </div>
     </div>

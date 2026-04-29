@@ -27,6 +27,12 @@ export default function TermsPage() {
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">外部連結</h2>
         <p>本站可能包含外部網站的連結（如航空公司官網、旅遊平台等），我們不對這些外部網站的內容或安全性負責。</p>
+
+        <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">廣告與商業內容</h2>
+        <p>
+          本站可能顯示第三方廣告或合作內容。廣告內容由第三方服務提供，使用者應自行判斷廣告商品或服務是否符合需求。
+          本站不會要求、暗示或鼓勵使用者點擊廣告。
+        </p>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/env";
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+export { SITE_URL };
 export const SITE_NAME = "旅遊實用工具站";
 
 export interface PageMetaInput {
