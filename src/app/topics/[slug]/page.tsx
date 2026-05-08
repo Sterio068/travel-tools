@@ -101,6 +101,36 @@ export default async function TopicClusterPage({
       </section>
 
       <section className="mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-900 mb-5">規劃步驟</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {cluster.planningSteps.map((step, index) => (
+            <div
+              key={step.title}
+              className="bg-white rounded-[16px] p-5 shadow-[0_1px_3px_rgba(8,51,68,0.06)]"
+            >
+              <span className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
+                {index + 1}
+              </span>
+              <h3 className="font-bold text-brand-900 mb-2">{step.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-10 rounded-[16px] bg-white p-5 md:p-6 shadow-[0_1px_3px_rgba(8,51,68,0.06)]">
+        <h2 className="text-xl font-bold text-brand-900 mb-4">出發前檢查重點</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {cluster.checkpoints.map((checkpoint) => (
+            <li key={checkpoint} className="flex items-start gap-3 text-sm text-brand-800 leading-relaxed">
+              <span className="mt-0.5 text-brand-500" aria-hidden="true">✓</span>
+              <span>{checkpoint}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-10">
         <h2 className="text-2xl md:text-3xl font-bold text-brand-900 mb-5">必用工具</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.tools.map((tool) => (

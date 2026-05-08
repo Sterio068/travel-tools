@@ -5,6 +5,7 @@ const NAV_LINKS = [
   { href: "/tools", label: "實用工具" },
   { href: "/countries", label: "國家速查" },
   { href: "/articles", label: "旅遊攻略" },
+  { href: "/topics", label: "主題攻略" },
   { href: "/about", label: "關於" },
 ];
 
