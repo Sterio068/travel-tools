@@ -61,7 +61,7 @@ export function AdBanner({
   return (
     <div className={`my-6 ${className}`} aria-label="廣告">
       <div className="mb-2 text-center text-[11px] font-medium text-slate-400">
-        廣告
+        Advertisements
       </div>
       <ins
         className={`adsbygoogle block ${heights[format]}`}
