@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 import { getSearchIndex, searchItems, type SearchItem } from "@/lib/search-index";
 
 export function SearchDialog() {
@@ -11,23 +12,29 @@ export function SearchDialog() {
 
   const index = useMemo(() => getSearchIndex(), []);
   const results = useMemo(() => searchItems(query, index), [query, index]);
+  const normalizedQuery = query.trim();
 
-  const closeDialog = () => {
+  const openDialog = useCallback((method: "button" | "keyboard") => {
+    setOpen(true);
+    trackEvent("site_search_opened", { method });
+  }, []);
+
+  const closeDialog = useCallback(() => {
     setOpen(false);
     setQuery("");
-  };
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setOpen(true);
+        openDialog("keyboard");
       }
       if (e.key === "Escape") closeDialog();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [closeDialog, openDialog]);
 
   useEffect(() => {
     if (open) {
@@ -36,10 +43,26 @@ export function SearchDialog() {
     }
   }, [open]);
 
+  useEffect(() => {
+    if (!open || normalizedQuery.length < 2) {
+      return;
+    }
+
+    const id = window.setTimeout(() => {
+      trackEvent("site_search_performed", {
+        search_term: normalizedQuery,
+        results_count: results.length,
+      });
+    }, 800);
+
+    return () => window.clearTimeout(id);
+  }, [open, normalizedQuery, results.length]);
+
   const typeColors: Record<string, string> = {
     tool: "bg-brand-100 text-brand-700",
     article: "bg-accent-100 text-accent-700",
     country: "bg-gold-50 text-gold-600",
+    topic: "bg-brand-50 text-brand-700",
     page: "bg-slate-100 text-slate-700",
   };
 
@@ -47,7 +70,7 @@ export function SearchDialog() {
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => openDialog("button")}
         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[10px] text-brand-600 hover:text-brand-700 hover:bg-brand-100 transition-colors text-sm"
         aria-label="搜尋"
       >
@@ -107,7 +130,15 @@ export function SearchDialog() {
                     <li key={i}>
                       <Link
                         href={r.href}
-                        onClick={closeDialog}
+                        onClick={() => {
+                          trackEvent("search_result_clicked", {
+                            search_term: normalizedQuery,
+                            result_position: i + 1,
+                            result_type: r.type,
+                            destination_path: r.href,
+                          });
+                          closeDialog();
+                        }}
                         className="flex items-start gap-3 px-4 py-3 hover:bg-brand-50 transition-colors"
                       >
                         <span

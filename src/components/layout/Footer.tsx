@@ -30,6 +30,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-brand-300">
               <li><Link href="/about" className="hover:text-white">關於我們</Link></li>
               <li><Link href="/articles" className="hover:text-white">旅遊攻略</Link></li>
+              <li><Link href="/topics" className="hover:text-white">主題攻略</Link></li>
               <li><Link href="/countries" className="hover:text-white">國家速查</Link></li>
               <li><Link href="/editorial-policy" className="hover:text-white">資料來源與編輯政策</Link></li>
               <li><Link href="/contact" className="hover:text-white">聯絡我們</Link></li>

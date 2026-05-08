@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
+import { TopicClusterSection } from "@/components/seo/TopicClusterSection";
 import { getAllArticles, CATEGORY_LABELS, CATEGORY_COLORS } from "@/lib/articles";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -18,6 +19,13 @@ export default function ArticlesPage() {
       <Breadcrumb items={[{ label: "首頁", href: "/" }, { label: "旅遊攻略" }]} />
       <h1 className="text-3xl md:text-4xl font-extrabold text-brand-900 mb-2">旅遊攻略</h1>
       <p className="text-brand-700 mb-8">實用的出國旅遊知識與技巧，讓你的旅程更順利</p>
+
+      <TopicClusterSection
+        className="mb-10 md:mb-12"
+        title="攻略主題整理"
+        description="同一個出國任務底下通常會同時需要工具、國家資訊與文章，這些主題頁能幫你更快串起完整準備流程。"
+        limit={3}
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {articles.map((article) => (

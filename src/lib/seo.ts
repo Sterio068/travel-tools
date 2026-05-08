@@ -157,3 +157,27 @@ export function articleSchema(article: {
     inLanguage: "zh-TW",
   };
 }
+
+export function topicClusterSchema(input: {
+  title: string;
+  description: string;
+  path: string;
+  itemUrls: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.title,
+    description: input.description,
+    url: `${SITE_URL}${input.path}`,
+    inLanguage: "zh-TW",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: input.itemUrls.map((url, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_URL}${url}`,
+      })),
+    },
+  };
+}

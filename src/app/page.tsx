@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TopicClusterSection } from "@/components/seo/TopicClusterSection";
 import { TOOLS } from "@/data/constants";
 import { COUNTRIES } from "@/data/countries";
 import { getAllArticles } from "@/lib/articles";
@@ -71,6 +72,12 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <TopicClusterSection
+        className="mb-12 md:mb-16"
+        description="依照出國前常見任務整理工具、目的地速查與攻略文章，從日本自由行、換匯預算到行李保險都能快速接上下一步。"
+        limit={6}
+      />
 
       {/* 實用工具 */}
       <section className="mb-12 md:mb-16">

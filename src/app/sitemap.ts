@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
 import { TOOLS } from "@/data/constants";
 import { COUNTRIES } from "@/data/countries";
+import { TOPIC_CLUSTERS } from "@/data/topic-clusters";
 import { SITE_URL } from "@/lib/env";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/tools`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/countries`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/articles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE_URL}/topics`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/editorial-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
@@ -42,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...toolPages, ...countryPages, ...articlePages];
+  const topicPages: MetadataRoute.Sitemap = TOPIC_CLUSTERS.map((cluster) => ({
+    url: `${SITE_URL}/topics/${cluster.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...toolPages, ...countryPages, ...articlePages, ...topicPages];
 }

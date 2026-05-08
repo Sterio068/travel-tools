@@ -1,12 +1,13 @@
 import { ARTICLES, CATEGORY_LABELS } from "@/lib/articles";
 import { TOOLS } from "@/data/constants";
 import { COUNTRIES } from "@/data/countries";
+import { TOPIC_CLUSTERS, getTopicClusterPath } from "@/data/topic-clusters";
 
 export interface SearchItem {
   title: string;
   description: string;
   href: string;
-  type: "tool" | "article" | "country" | "page";
+  type: "tool" | "article" | "country" | "topic" | "page";
   typeLabel: string;
   keywords: string[];
 }
@@ -44,6 +45,17 @@ export function getSearchIndex(): SearchItem[] {
       type: "country",
       typeLabel: "國家",
       keywords: [country.nameZh, country.nameEn, country.currencyName],
+    });
+  }
+
+  for (const cluster of TOPIC_CLUSTERS) {
+    items.push({
+      title: cluster.title,
+      description: cluster.description,
+      href: getTopicClusterPath(cluster),
+      type: "topic",
+      typeLabel: "主題",
+      keywords: [cluster.primaryKeyword, ...cluster.keywords],
     });
   }
 
