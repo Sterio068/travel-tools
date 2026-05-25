@@ -14,19 +14,27 @@ export default function TermsPage() {
       <h1 className="text-3xl md:text-4xl font-extrabold text-brand-900 mb-6">服務條款</h1>
 
       <div className="space-y-6 text-brand-800 text-base leading-relaxed">
-        <p>最後更新日期：2026 年 4 月 8 日</p>
+        <p>最後更新日期：2026 年 5 月 25 日</p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">服務內容</h2>
         <p>旅遊實用工具站提供免費的出國旅遊實用工具與資訊，包括匯率換算、時差查詢、行李規定速查、旅遊預算計算等功能。</p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">免責聲明</h2>
         <p>本站所有計算工具的結果及旅遊資訊僅供參考。匯率為即時估算值，實際兌換金額以銀行或換匯機構的牌告匯率為準。各國簽證、入境規定、航空行李規定等可能隨時變更，出發前請以各官方網站最新公告為準。本站不對因使用本站資訊所造成的任何損失負責。</p>
+        <p>
+          本站不能代替政府機關、航空公司、銀行、保險公司、旅行社、移民律師或緊急救援服務。任何涉及簽證申請、入境資格、理賠、醫療、安全或法律責任的決定，都應以正式機關與專業服務的最新說明為準。
+        </p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">智慧財產權</h2>
         <p>本站的所有原創內容（包括文字、設計、程式碼）均受著作權法保護。未經授權不得轉載或複製。</p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">外部連結</h2>
         <p>本站可能包含外部網站的連結（如航空公司官網、旅遊平台等），我們不對這些外部網站的內容或安全性負責。</p>
+
+        <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">資料來源與修正</h2>
+        <p>
+          本站會盡量標示工具與文章的主要來源或查核基礎。來源連結不代表該機構與本站存在合作、背書或授權關係。若讀者回報資料過時或錯誤，我們會依影響程度安排查核與更新。
+        </p>
 
         <h2 className="text-xl font-bold text-brand-900 mt-6 mb-3">廣告與商業內容</h2>
         <p>

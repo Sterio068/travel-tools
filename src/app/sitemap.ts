@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
 import { TOOLS } from "@/data/constants";
 import { COUNTRIES } from "@/data/countries";
+import { TOOL_PAGE_CONTENT } from "@/data/tool-page-content";
 import { TOPIC_CLUSTERS } from "@/data/topic-clusters";
 import { SITE_URL } from "@/lib/env";
 
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/editorial-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${SITE_URL}/sources`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
     { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.1 },
     { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.1 },
   ];
@@ -25,7 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((t) => t.href !== "/countries")
     .map((tool) => ({
       url: `${SITE_URL}${tool.href}`,
-      lastModified: now,
+      lastModified:
+        Object.values(TOOL_PAGE_CONTENT).find((content) => content.href === tool.href)
+          ?.updatedAt ?? now,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     }));

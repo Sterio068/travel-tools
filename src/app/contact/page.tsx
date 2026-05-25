@@ -19,14 +19,14 @@ export default function ContactPage() {
           我們會優先處理影響旅客判斷的資料錯誤，例如簽證、入境、行李、退稅與安全相關資訊。
         </p>
 
-        <section className="bg-white rounded-[16px] p-6 shadow-[0_1px_3px_rgba(8,51,68,0.06)]">
+        <section className="rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-6">
           <h2 className="text-xl font-bold text-brand-900 mb-3">電子郵件</h2>
           <p className="mb-4 text-brand-700">
             來信時請附上相關頁面網址、你看到的問題，以及可參考的官方來源連結，方便我們查核。
           </p>
           <a
             href="mailto:sterio068@gmail.com"
-            className="inline-flex items-center px-5 py-2.5 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors"
+            className="inline-flex items-center px-5 py-2.5 rounded-[8px] bg-brand-500 text-slate-50 font-semibold hover:bg-brand-600 transition-colors"
           >
             sterio068@gmail.com
           </a>
@@ -43,9 +43,30 @@ export default function ContactPage() {
         </section>
 
         <section>
+          <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">
+            回報資料錯誤時請附上
+          </h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>問題頁面的網址與錯誤段落。</li>
+            <li>你查到的官方來源、航空公司公告、銀行或保險條款連結。</li>
+            <li>若是工具結果異常，請附上輸入條件與截圖。</li>
+            <li>若是政策變更，請標出公告日期與適用對象。</li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">回覆時間</h2>
           <p>
             一般來信會在 3 至 7 個工作天內回覆。若是重大政策變更或安全相關資訊，我們會優先查核並更新頁面。
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">
+            我們無法代辦的事項
+          </h2>
+          <p>
+            本站無法代辦簽證、保險理賠、訂票、退稅、海關申報或緊急救援。若已在旅途中遇到入境、事故、遺失護照、醫療或人身安全問題，請優先聯絡航空公司、保險公司、當地警政機關、台灣駐外館處或官方緊急窗口。
           </p>
         </section>
       </div>
