@@ -31,13 +31,34 @@ export default function AboutPage() {
           <li>國家資訊：各國官方旅遊網站</li>
         </ul>
         <p>
-          更完整的查核方式與廣告揭露，請參考本站的資料來源與編輯政策。
+          更完整的查核方式與廣告揭露，請參考本站的{" "}
+          <a href="/sources" className="font-semibold text-brand-600 hover:underline">
+            資料來源
+          </a>{" "}
+          與{" "}
+          <a href="/editorial-policy" className="font-semibold text-brand-600 hover:underline">
+            編輯政策
+          </a>
+          。
+        </p>
+
+        <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">
+          我們如何處理高風險資訊
+        </h2>
+        <p>
+          簽證、入境、海關、航空行李、退稅、匯率與保險資訊都可能直接影響旅客能否順利出發或避免金錢損失。本站會把這些資訊標示為需要出發前再查官方的內容，並在工具頁加入來源、限制與檢查清單。
+        </p>
+        <p>
+          對於變動快速的主題，我們避免寫成永久保證；頁面只提供行前整理與估算，最終仍以航空公司、政府機關、銀行、保險公司與目的地官方公告為準。
         </p>
 
         <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">營運方式</h2>
         <p>
           本站以免費工具和旅遊資訊服務讀者，可能透過廣告或合作內容支持網站維運。
           廣告不會影響旅遊資訊的整理原則，本站也不會要求或鼓勵使用者點擊廣告。
+        </p>
+        <p>
+          如果未來有合作文章、推薦連結或商業內容，我們會在相關頁面清楚揭露，並保留一般編輯內容與廣告內容的區隔。
         </p>
 
         <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">免責聲明</h2>
@@ -51,7 +72,7 @@ export default function AboutPage() {
         </p>
         <a
           href="/contact"
-          className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors"
+          className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-[8px] bg-brand-500 text-slate-50 font-semibold hover:bg-brand-600 transition-colors"
         >
           前往聯絡頁
         </a>

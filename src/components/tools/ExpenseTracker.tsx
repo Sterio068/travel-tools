@@ -175,7 +175,7 @@ export default function ExpenseTracker() {
 
           <Button
             onClick={addExpense}
-            className="bg-brand-500 text-white hover:bg-brand-500/90"
+            className="bg-brand-500 text-slate-50 hover:bg-brand-500/90"
           >
             新增
           </Button>

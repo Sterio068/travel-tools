@@ -83,7 +83,7 @@ export default function VisaChecker() {
           placeholder="搜尋國家名稱..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500"
+          className="w-full rounded-[8px] border border-brand-200 bg-brand-50/30 px-3 py-2 text-sm text-brand-900 placeholder:text-slate-500 focus:border-brand-500 focus:bg-[var(--color-surface-card)] focus:outline-none focus:ring-2 focus:ring-brand-200"
         />
 
         <div className="flex gap-2">
@@ -95,7 +95,7 @@ export default function VisaChecker() {
               onClick={() => setFilter(fb.key)}
               className={
                 filter === fb.key
-                  ? "bg-brand-500 text-white"
+                  ? "bg-brand-500 text-slate-50"
                   : "hover:border-brand-500 hover:text-brand-500"
               }
             >
@@ -110,7 +110,7 @@ export default function VisaChecker() {
         {filteredCountries.map((country) => (
           <Card
             key={country.code}
-            className="p-4 flex flex-col items-center text-center gap-2 hover:shadow-md transition-shadow"
+            className="p-4 flex flex-col items-center text-center gap-2 transition-colors hover:border-brand-300 hover:bg-brand-50/40"
           >
             <span className="text-3xl">{country.flag}</span>
             <p className="font-medium text-sm text-gray-900 leading-tight">

@@ -71,7 +71,7 @@ export function SearchDialog() {
       <button
         type="button"
         onClick={() => openDialog("button")}
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[10px] text-brand-600 hover:text-brand-700 hover:bg-brand-100 transition-colors text-sm"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[8px] text-brand-600 hover:text-brand-700 hover:bg-brand-100 transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
         aria-label="搜尋"
       >
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -87,9 +87,9 @@ export function SearchDialog() {
           className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4"
           onClick={closeDialog}
         >
-          <div className="fixed inset-0 bg-brand-900/40 backdrop-blur-sm" />
+          <div className="fixed inset-0 bg-brand-900/45" />
           <div
-            className="relative w-full max-w-xl bg-white rounded-[16px] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-xl overflow-hidden rounded-[8px] bg-[var(--color-surface-card)] shadow-[0_24px_60px_rgba(8,51,68,0.18)]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 px-4 py-3 border-b border-brand-200">
@@ -103,12 +103,12 @@ export function SearchDialog() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="搜尋工具、國家、文章⋯⋯"
-                className="flex-1 bg-transparent outline-none text-brand-900 placeholder:text-slate-400"
+                className="flex-1 bg-transparent outline-none text-brand-900 placeholder:text-slate-500"
               />
               <button
                 type="button"
                 onClick={closeDialog}
-                className="text-xs text-slate-500 border border-slate-200 rounded px-1.5 py-0.5"
+                className="text-xs text-slate-500 border border-slate-200 rounded-[6px] px-1.5 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
               >
                 ESC
               </button>

@@ -266,10 +266,10 @@ export default function BaggageChecker() {
       {/* Results */}
       {showCompare && compareAirline ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-brand-50/40 rounded-[16px] p-4 md:p-6">
+          <div className="bg-brand-50/40 rounded-[8px] p-4 md:p-6">
             <AirlineDetail airline={selectedAirline} cabinClass={cabinClass} />
           </div>
-          <div className="bg-brand-50/40 rounded-[16px] p-4 md:p-6">
+          <div className="bg-brand-50/40 rounded-[8px] p-4 md:p-6">
             <AirlineDetail airline={compareAirline} cabinClass={cabinClass} />
           </div>
         </div>

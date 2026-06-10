@@ -150,7 +150,7 @@ export default function CustomsChecker() {
           }}
           className={
             tab === "inbound"
-              ? "bg-brand-500 text-white"
+              ? "bg-brand-500 text-slate-50"
               : "bg-gray-100 text-gray-600"
           }
         >
@@ -163,7 +163,7 @@ export default function CustomsChecker() {
           }}
           className={
             tab === "outbound"
-              ? "bg-brand-500 text-white"
+              ? "bg-brand-500 text-slate-50"
               : "bg-gray-100 text-gray-600"
           }
         >

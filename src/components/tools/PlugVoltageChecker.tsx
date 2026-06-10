@@ -159,7 +159,7 @@ export default function PlugVoltageChecker() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Plug types */}
-          <div className="text-center p-4 rounded-xl bg-brand-50/50">
+          <div className="text-center p-4 rounded-[8px] bg-brand-50/50">
             <p className="text-xs text-slate-500 mb-1">插頭類型</p>
             <p className="text-2xl font-bold text-brand-500">
               {country.plugType.map((t) => `Type ${t}`).join(", ")}
@@ -174,7 +174,7 @@ export default function PlugVoltageChecker() {
           </div>
 
           {/* Voltage */}
-          <div className="text-center p-4 rounded-xl bg-brand-50/50">
+          <div className="text-center p-4 rounded-[8px] bg-brand-50/50">
             <p className="text-xs text-slate-500 mb-1">電壓</p>
             <p className="text-2xl font-bold text-brand-500">
               {country.voltage}V
@@ -185,7 +185,7 @@ export default function PlugVoltageChecker() {
           </div>
 
           {/* Frequency */}
-          <div className="text-center p-4 rounded-xl bg-brand-50/50">
+          <div className="text-center p-4 rounded-[8px] bg-brand-50/50">
             <p className="text-xs text-slate-500 mb-1">頻率</p>
             <p className="text-2xl font-bold text-brand-500">
               {country.frequency}Hz

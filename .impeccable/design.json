@@ -1,0 +1,136 @@
+{
+  "version": 2,
+  "colorMeta": {
+    "intent": "Task-first travel utility palette with teal for trust, coral for warm secondary action, gold for money highlights, and tinted slate neutrals.",
+    "roles": {
+      "primary": {
+        "value": "#0891B2",
+        "usage": "Primary actions, selected states, focus affordances, active navigation."
+      },
+      "primaryDark": {
+        "value": "#083344",
+        "usage": "Headings, footer background, high-emphasis text."
+      },
+      "accent": {
+        "value": "#F97316",
+        "usage": "Secondary warm action, recommendation highlights, rare emphasis."
+      },
+      "background": {
+        "value": "#F0FDFA",
+        "usage": "Page shell and travel-adjacent product backdrop."
+      },
+      "surface": {
+        "value": "#FEFEFC",
+        "usage": "Cards, panels, modals, and repeated surfaces."
+      },
+      "border": {
+        "value": "#CFFAFE",
+        "usage": "Default structure for cards, nav, tables, and form controls."
+      }
+    },
+    "contrastNotes": [
+      "Use brand-900 or brand-800 for body copy on light teal and surface panels.",
+      "Avoid light gray text on white or colored panels.",
+      "Advertisements use muted labels and clear separation, never CTA colors."
+    ]
+  },
+  "typographyMeta": {
+    "families": {
+      "primary": "Noto Sans TC",
+      "latin": "Inter",
+      "fallback": "system-ui, -apple-system, sans-serif"
+    },
+    "scale": {
+      "pageTitle": "1.875rem to 2.25rem",
+      "sectionTitle": "1.375rem to 1.875rem",
+      "body": "1rem",
+      "metadata": "0.75rem to 0.875rem"
+    },
+    "rules": [
+      "No viewport-width font scaling.",
+      "Use display weight only for page-level titles.",
+      "Keep button and control labels compact, literal, and action-oriented."
+    ]
+  },
+  "shadows": {
+    "resting": "0 1px 3px rgba(8, 51, 68, 0.06)",
+    "interactive": "0 8px 20px rgba(8, 51, 68, 0.08)",
+    "overlay": "0 24px 60px rgba(8, 51, 68, 0.18)",
+    "rule": "Repeated surfaces should use borders before large shadows."
+  },
+  "motion": {
+    "duration": "150ms to 200ms",
+    "easing": "ease-out for entry, ease-in-out for state changes",
+    "rules": [
+      "Motion supports feedback only.",
+      "Do not rely on hover-only disclosure.",
+      "Respect reduced motion by keeping transitions non-essential."
+    ]
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1152px",
+    "rules": [
+      "Mobile starts with one clear task path.",
+      "Desktop may show parallel choices, but no decision area should expose more than four equally weighted options without grouping."
+    ]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "snippet": "inline-flex items-center justify-center rounded-[8px] font-semibold focus-visible:ring-2 focus-visible:ring-brand-500",
+      "states": ["default", "hover", "active", "disabled", "focus-visible"]
+    },
+    {
+      "name": "Card",
+      "snippet": "rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] shadow-[var(--shadow-card)]",
+      "states": ["default", "hover", "focus-visible when interactive"]
+    },
+    {
+      "name": "Input",
+      "snippet": "rounded-[8px] border border-brand-200 bg-brand-50/30 focus:border-brand-500 focus:ring-2 focus:ring-brand-200",
+      "states": ["default", "focus", "disabled", "error"]
+    },
+    {
+      "name": "TopicCluster",
+      "snippet": "compact task card with primary keyword pill, short title, description, and low-emphasis metadata",
+      "states": ["default", "hover", "focus-visible"]
+    },
+    {
+      "name": "AdBanner",
+      "snippet": "neutral region with explicit advertisement label and no CTA treatment",
+      "states": ["empty development placeholder", "loaded ad region"]
+    },
+    {
+      "name": "ToolPageShell",
+      "snippet": "task header, interactive tool, post-tool ad, quick answer, steps, checklist, sources, FAQ, same-stage links",
+      "states": ["content-ready", "ad-empty", "tracked"]
+    }
+  ],
+  "narrative": {
+    "surface": "product",
+    "summary": "TripKit should feel like a focused travel preparation workbench: fast to scan, reliable, and lightly warm without becoming a travel blog template.",
+    "informationArchitecture": [
+      "Estimate money",
+      "Confirm entry",
+      "Pack luggage",
+      "Time the trip"
+    ],
+    "antiPatternsFixed": [
+      "Hero metric strip",
+      "Large-radius repeated card walls",
+      "Decorative gradients on result panels",
+      "Side-stripe quote styling",
+      "Oversized shadows on repeated list items",
+      "Ads before primary tool actions",
+      "Thin tool pages without extractable explanatory content"
+    ],
+    "analyticsEvents": [
+      "tool_viewed",
+      "tool_started",
+      "tool_result_viewed"
+    ]
+  }
+}

@@ -32,7 +32,7 @@ export default function ArticlesPage() {
           <Link
             key={article.slug}
             href={`/articles/${article.slug}`}
-            className="bg-white rounded-[16px] p-5 shadow-[0_1px_3px_rgba(8,51,68,0.06)] hover:shadow-[0_10px_25px_rgba(8,51,68,0.1)] transition-shadow flex flex-col"
+            className="flex flex-col rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-5 transition-colors hover:border-brand-300 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
           >
             <span className={`self-start px-3 py-1 rounded-[20px] text-xs font-semibold mb-3 ${CATEGORY_COLORS[article.category]}`}>
               {CATEGORY_LABELS[article.category]}

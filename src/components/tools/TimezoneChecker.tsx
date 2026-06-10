@@ -52,7 +52,7 @@ export default function TimezoneChecker() {
       {tzInfo && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card className="bg-gradient-to-br from-brand-50 to-white">
+            <Card className="bg-brand-50/70 border-brand-200">
               <div className="text-center space-y-2">
                 <p className="text-sm text-slate-500">{tzInfo.flag} {tzInfo.countryName} 現在時間</p>
                 <p className="text-4xl font-extrabold text-brand-600 tabular-nums">{tzInfo.localTime}</p>

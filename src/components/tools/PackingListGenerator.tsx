@@ -102,9 +102,9 @@ export default function PackingListGenerator() {
                 <button
                   key={opt.value}
                   onClick={() => setClimate(opt.value)}
-                  className={`flex-1 py-2.5 px-3 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                  className={`flex-1 py-2.5 px-3 rounded-[8px] text-sm font-semibold transition-all cursor-pointer ${
                     climate === opt.value
-                      ? "bg-brand-500 text-white shadow-md"
+                      ? "bg-brand-500 text-slate-50 shadow-md"
                       : "bg-brand-50 text-brand-700 hover:bg-brand-100"
                   }`}
                 >
@@ -123,9 +123,9 @@ export default function PackingListGenerator() {
             <div className="flex gap-2">
               <button
                 onClick={() => handleDurationToggle("short")}
-                className={`flex-1 py-2.5 px-3 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                className={`flex-1 py-2.5 px-3 rounded-[8px] text-sm font-semibold transition-all cursor-pointer ${
                   duration === "short"
-                    ? "bg-brand-500 text-white shadow-md"
+                    ? "bg-brand-500 text-slate-50 shadow-md"
                     : "bg-brand-50 text-brand-700 hover:bg-brand-100"
                 }`}
               >
@@ -133,9 +133,9 @@ export default function PackingListGenerator() {
               </button>
               <button
                 onClick={() => handleDurationToggle("long")}
-                className={`flex-1 py-2.5 px-3 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                className={`flex-1 py-2.5 px-3 rounded-[8px] text-sm font-semibold transition-all cursor-pointer ${
                   duration === "long"
-                    ? "bg-brand-500 text-white shadow-md"
+                    ? "bg-brand-500 text-slate-50 shadow-md"
                     : "bg-brand-50 text-brand-700 hover:bg-brand-100"
                 }`}
               >
@@ -160,7 +160,7 @@ export default function PackingListGenerator() {
               max={90}
               value={days}
               onChange={handleDaysChange}
-              className="w-full rounded-[10px] border border-brand-200 bg-brand-50/30 px-4 py-2.5 text-base text-brand-900 focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-200 transition-all"
+              className="w-full rounded-[8px] border border-brand-200 bg-brand-50/30 px-4 py-2.5 text-base text-brand-900 focus:border-brand-500 focus:bg-[var(--color-surface-card)] focus:outline-none focus:ring-2 focus:ring-brand-200 transition-colors"
             />
           </div>
 
@@ -175,7 +175,7 @@ export default function PackingListGenerator() {
       {items && grouped && (
         <>
           {/* Progress card */}
-          <Card className="bg-gradient-to-br from-brand-50 to-white border border-brand-200">
+          <Card className="bg-brand-50/70 border-brand-200">
             <div className="text-center">
               <p className="text-sm text-slate-500 mb-1">打包進度</p>
               <p className="text-2xl font-bold text-brand-500">

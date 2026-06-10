@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SearchDialog } from "@/components/search/SearchDialog";
 
 const NAV_LINKS = [
@@ -10,6 +13,8 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="hidden md:block sticky top-0 z-40 bg-[#F0FDFA]/90 backdrop-blur-sm border-b border-brand-200">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -24,7 +29,16 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="px-4 py-2 rounded-[10px] text-brand-700 font-medium hover:bg-brand-100 hover:text-brand-600 transition-colors"
+                    className={`px-4 py-2 rounded-[8px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                      pathname === link.href || pathname.startsWith(`${link.href}/`)
+                        ? "bg-brand-100 text-brand-700"
+                        : "text-brand-700 hover:bg-brand-100 hover:text-brand-600"
+                    }`}
+                    aria-current={
+                      pathname === link.href || pathname.startsWith(`${link.href}/`)
+                        ? "page"
+                        : undefined
+                    }
                   >
                     {link.label}
                   </Link>

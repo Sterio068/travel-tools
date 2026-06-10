@@ -18,14 +18,14 @@ export function RecommendationCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer nofollow"
-      className={`block bg-white rounded-[16px] p-5 shadow-[0_1px_3px_rgba(8,51,68,0.06)] hover:shadow-[0_10px_25px_rgba(8,51,68,0.1)] transition-shadow border border-accent-200 ${className}`}
+      className={`block rounded-[8px] border border-accent-200 bg-[var(--color-surface-card)] p-5 transition-colors hover:border-accent-300 hover:bg-accent-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${className}`}
     >
       <div className="flex items-center justify-between">
         <div>
           <p className="font-bold text-brand-900">{title}</p>
           <p className="text-xs text-slate-500 mt-1">透過 {platform} 預訂</p>
         </div>
-        <span className="inline-flex items-center px-4 py-2 rounded-[12px] bg-accent-500 text-white text-sm font-semibold hover:bg-accent-600 transition-colors">
+        <span className="inline-flex items-center px-4 py-2 rounded-[8px] bg-accent-500 text-slate-50 text-sm font-semibold hover:bg-accent-600 transition-colors">
           {label} →
         </span>
       </div>

@@ -87,7 +87,7 @@ export default function TipCalculator() {
                 onClick={() => handleQuickTip(pct)}
                 className={
                   activeQuick === pct
-                    ? "bg-brand-500 text-white"
+                    ? "bg-brand-500 text-slate-50"
                     : "hover:border-brand-500 hover:text-brand-500"
                 }
               >
@@ -128,7 +128,7 @@ export default function TipCalculator() {
 
           {/* 金額顯示 */}
           <div className="grid grid-cols-2 gap-4 my-4">
-            <div className="text-center p-4 bg-accent-500/5 rounded-xl">
+            <div className="text-center p-4 bg-accent-500/5 rounded-[8px]">
               <p className="text-sm text-gray-500 mb-1">小費金額</p>
               <p className="text-3xl font-bold text-accent-500">
                 {result.currencySymbol}
@@ -138,7 +138,7 @@ export default function TipCalculator() {
                 })}
               </p>
             </div>
-            <div className="text-center p-4 bg-brand-500/5 rounded-xl">
+            <div className="text-center p-4 bg-brand-500/5 rounded-[8px]">
               <p className="text-sm text-gray-500 mb-1">含小費總計</p>
               <p className="text-3xl font-bold text-brand-500">
                 {result.currencySymbol}

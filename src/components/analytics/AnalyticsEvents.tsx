@@ -35,12 +35,22 @@ export function AnalyticsEvents() {
       }
 
       const rawHref = anchor.getAttribute("href");
-      if (!rawHref || rawHref.startsWith("#")) {
+      if (!rawHref) {
         return;
       }
 
       const linkText = getLinkText(anchor);
       const linkLocation = getLinkLocation(anchor);
+
+      if (rawHref.startsWith("#")) {
+        trackEvent("section_link_clicked", {
+          content_group: "page_anchor",
+          destination_hash: rawHref,
+          link_text: linkText,
+          link_location: linkLocation,
+        });
+        return;
+      }
 
       if (rawHref.startsWith("mailto:")) {
         trackEvent("contact_clicked", {
@@ -71,6 +81,16 @@ export function AnalyticsEvents() {
         trackEvent("external_link_clicked", {
           link_text: linkText,
           link_url: url.href,
+          link_location: linkLocation,
+        });
+        return;
+      }
+
+      if (url.pathname === pathname && url.hash) {
+        trackEvent("section_link_clicked", {
+          content_group: "page_anchor",
+          destination_hash: url.hash,
+          link_text: linkText,
           link_location: linkLocation,
         });
         return;

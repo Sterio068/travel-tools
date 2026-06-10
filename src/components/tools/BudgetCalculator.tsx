@@ -127,16 +127,16 @@ export default function BudgetCalculator() {
                 key={s.value}
                 type="button"
                 onClick={() => setStyle(s.value)}
-                className={`rounded-[12px] px-3 py-3 text-center transition-all cursor-pointer ${
+                className={`rounded-[8px] px-3 py-3 text-center transition-all cursor-pointer ${
                   style === s.value
-                    ? "bg-brand-500 text-white shadow-md"
+                    ? "bg-brand-500 text-slate-50 shadow-md"
                     : "bg-brand-50 text-brand-700 hover:bg-brand-100"
                 }`}
               >
                 <span className="block text-sm font-bold">{s.label}</span>
                 <span
                   className={`block text-xs mt-0.5 ${
-                    style === s.value ? "text-white/80" : "text-slate-400"
+                    style === s.value ? "text-slate-50/80" : "text-slate-400"
                   }`}
                 >
                   {s.desc}

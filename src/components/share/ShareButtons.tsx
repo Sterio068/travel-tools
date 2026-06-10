@@ -31,7 +31,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
   };
 
   const btnBase =
-    "inline-flex items-center gap-2 px-4 py-2 rounded-[12px] text-sm font-medium transition-colors";
+    "inline-flex items-center gap-2 px-4 py-2 rounded-[8px] text-sm font-medium transition-colors";
 
   return (
     <div className="flex flex-wrap items-center gap-2 my-6">
@@ -41,7 +41,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         href={shareLinks.line}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${btnBase} bg-[#06C755] text-white hover:bg-[#05B54B]`}
+        className={`${btnBase} bg-[#06C755] text-slate-50 hover:bg-[#05B54B]`}
         aria-label="分享到 LINE"
       >
         LINE
@@ -51,7 +51,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         href={shareLinks.facebook}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${btnBase} bg-[#1877F2] text-white hover:bg-[#166FE5]`}
+        className={`${btnBase} bg-[#1877F2] text-slate-50 hover:bg-[#166FE5]`}
         aria-label="分享到 Facebook"
       >
         Facebook
@@ -61,7 +61,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         href={shareLinks.threads}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${btnBase} bg-brand-900 text-white hover:bg-brand-800`}
+        className={`${btnBase} bg-brand-900 text-slate-50 hover:bg-brand-800`}
         aria-label="分享到 Threads"
       >
         Threads
@@ -71,7 +71,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         href={shareLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${btnBase} bg-slate-900 text-white hover:bg-slate-800`}
+        className={`${btnBase} bg-slate-900 text-slate-50 hover:bg-slate-800`}
         aria-label="分享到 X (Twitter)"
       >
         X

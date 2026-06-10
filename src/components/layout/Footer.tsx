@@ -17,23 +17,25 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-3 text-brand-100">實用工具</h3>
             <ul className="columns-2 gap-x-6 space-y-2 text-sm text-brand-300">
-              <li><Link href="/tools/currency" className="hover:text-white">匯率換算</Link></li>
-              <li><Link href="/tools/timezone" className="hover:text-white">時差查詢</Link></li>
-              <li><Link href="/tools/baggage" className="hover:text-white">行李規定</Link></li>
-              <li><Link href="/tools/budget" className="hover:text-white">旅遊預算</Link></li>
-              <li><Link href="/tools/plug-voltage" className="hover:text-white">插頭電壓</Link></li>
-              <li><Link href="/tools/packing-list" className="hover:text-white">打包清單</Link></li>
+              <li><Link href="/tools/currency" className="hover:text-slate-50">匯率換算</Link></li>
+              <li><Link href="/tools/timezone" className="hover:text-slate-50">時差查詢</Link></li>
+              <li><Link href="/tools/baggage" className="hover:text-slate-50">行李規定</Link></li>
+              <li><Link href="/tools/budget" className="hover:text-slate-50">旅遊預算</Link></li>
+              <li><Link href="/tools/plug-voltage" className="hover:text-slate-50">插頭電壓</Link></li>
+              <li><Link href="/tools/packing-list" className="hover:text-slate-50">打包清單</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-semibold mb-3 text-brand-100">關於</h3>
             <ul className="space-y-2 text-sm text-brand-300">
-              <li><Link href="/about" className="hover:text-white">關於我們</Link></li>
-              <li><Link href="/articles" className="hover:text-white">旅遊攻略</Link></li>
-              <li><Link href="/topics" className="hover:text-white">主題攻略</Link></li>
-              <li><Link href="/countries" className="hover:text-white">國家速查</Link></li>
-              <li><Link href="/editorial-policy" className="hover:text-white">資料來源與編輯政策</Link></li>
-              <li><Link href="/contact" className="hover:text-white">聯絡我們</Link></li>
+              <li><Link href="/about" className="hover:text-slate-50">關於我們</Link></li>
+              <li><Link href="/articles" className="hover:text-slate-50">旅遊攻略</Link></li>
+              <li><Link href="/topics" className="hover:text-slate-50">主題攻略</Link></li>
+              <li><Link href="/countries" className="hover:text-slate-50">國家速查</Link></li>
+              <li><Link href="/editorial-policy" className="hover:text-slate-50">資料來源與編輯政策</Link></li>
+              <li><Link href="/sources" className="hover:text-slate-50">資料來源</Link></li>
+              <li><Link href="/faq" className="hover:text-slate-50">常見問題</Link></li>
+              <li><Link href="/contact" className="hover:text-slate-50">聯絡我們</Link></li>
             </ul>
           </div>
         </div>
@@ -46,7 +48,7 @@ export function Footer() {
             </div>
             <a
               href="mailto:sterio068@gmail.com?subject=訂閱旅遊實用工具站更新&body=您好，我想訂閱旅遊實用工具站的更新通知。"
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-brand-500 hover:bg-brand-400 text-white text-sm font-semibold transition-colors"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] bg-brand-500 hover:bg-brand-400 text-slate-50 text-sm font-semibold transition-colors"
             >
               ✉️ 訂閱更新
             </a>
@@ -58,9 +60,11 @@ export function Footer() {
             © {new Date().getFullYear()} 旅遊實用工具站 · 本站內容僅供參考，出發前請以官方資訊為準
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/privacy" className="hover:text-white">隱私權政策</Link>
-            <Link href="/terms" className="hover:text-white">服務條款</Link>
-            <Link href="/contact" className="hover:text-white">聯絡我們</Link>
+            <Link href="/privacy" className="hover:text-slate-50">隱私權政策</Link>
+            <Link href="/terms" className="hover:text-slate-50">服務條款</Link>
+            <Link href="/sources" className="hover:text-slate-50">資料來源</Link>
+            <Link href="/faq" className="hover:text-slate-50">常見問題</Link>
+            <Link href="/contact" className="hover:text-slate-50">聯絡我們</Link>
           </div>
         </div>
       </div>

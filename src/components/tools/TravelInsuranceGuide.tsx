@@ -230,7 +230,7 @@ export default function TravelInsuranceGuide() {
         </p>
         <Link
           href="/articles/travel-insurance-guide"
-          className="inline-flex items-center px-6 py-3 rounded-[12px] bg-accent-500 text-white font-semibold hover:bg-accent-600 transition-colors"
+          className="inline-flex items-center px-6 py-3 rounded-[8px] bg-accent-500 text-slate-50 font-semibold hover:bg-accent-600 transition-colors"
         >
           閱讀投保指南 →
         </Link>

@@ -55,16 +55,16 @@
 
   /* 背景 */
   --color-surface: #F0FDFA;
-  --color-surface-card: #FFFFFF;
+  --color-surface-card: #FEFEFC;
 
   /* 字體 */
   --font-sans: var(--font-noto-sans-tc), var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-inter), var(--font-noto-sans-tc), system-ui, sans-serif;
 
   /* 圓角 */
-  --radius-card: 16px;
-  --radius-button: 12px;
-  --radius-input: 10px;
+  --radius-card: 8px;
+  --radius-button: 8px;
+  --radius-input: 8px;
   --radius-tag: 20px;
 
   /* 陰影 */
@@ -91,9 +91,9 @@ body {
 }
 
 @utility card-base {
-  @apply bg-white rounded-[16px] shadow-[var(--shadow-card)] transition-shadow;
+  @apply bg-[var(--color-surface-card)] rounded-[8px] border border-brand-100 shadow-[var(--shadow-card)] transition-colors;
 }
 
 @utility card-hover {
-  @apply hover:shadow-[var(--shadow-card-hover)];
+  @apply hover:border-brand-300 hover:bg-brand-50/40;
 }

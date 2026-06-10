@@ -41,7 +41,7 @@ export function TopicClusterSection({
           <Link
             key={cluster.slug}
             href={getTopicClusterPath(cluster)}
-            className="bg-white rounded-[16px] p-5 shadow-[0_1px_3px_rgba(8,51,68,0.06)] hover:shadow-[0_10px_25px_rgba(8,51,68,0.1)] transition-shadow"
+            className="rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-5 transition-colors hover:border-brand-300 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
           >
             <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 mb-3">
               {cluster.primaryKeyword}

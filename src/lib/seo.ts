@@ -43,6 +43,8 @@ export function webApplicationSchema(tool: {
   name: string;
   description: string;
   path: string;
+  featureList?: string[];
+  dateModified?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -58,6 +60,24 @@ export function webApplicationSchema(tool: {
       priceCurrency: "TWD",
     },
     inLanguage: "zh-TW",
+    featureList: tool.featureList,
+    dateModified: tool.dateModified,
+    mainEntityOfPage: `${SITE_URL}${tool.path}`,
+  };
+}
+
+export function breadcrumbSchema(
+  items: Array<{ label: string; href?: string }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
+    })),
   };
 }
 
@@ -139,13 +159,19 @@ export function articleSchema(article: {
   path: string;
   publishedAt: string;
   updatedAt?: string;
+  image?: string;
 }) {
+  const url = `${SITE_URL}${article.path}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
-    url: `${SITE_URL}${article.path}`,
+    url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
     datePublished: article.publishedAt,
     dateModified: article.updatedAt || article.publishedAt,
     author: { "@type": "Organization", name: SITE_NAME },
@@ -154,7 +180,9 @@ export function articleSchema(article: {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    image: article.image || `${SITE_URL}/opengraph-image`,
     inLanguage: "zh-TW",
+    isAccessibleForFree: true,
   };
 }
 
@@ -163,6 +191,7 @@ export function topicClusterSchema(input: {
   description: string;
   path: string;
   itemUrls: string[];
+  keywords?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -171,6 +200,11 @@ export function topicClusterSchema(input: {
     description: input.description,
     url: `${SITE_URL}${input.path}`,
     inLanguage: "zh-TW",
+    keywords: input.keywords,
+    about: input.keywords?.map((keyword) => ({
+      "@type": "Thing",
+      name: keyword,
+    })),
     mainEntity: {
       "@type": "ItemList",
       itemListElement: input.itemUrls.map((url, index) => ({

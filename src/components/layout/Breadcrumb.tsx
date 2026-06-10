@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/seo";
 
 export interface BreadcrumbItem {
   label: string;
@@ -12,22 +12,9 @@ interface Props {
 }
 
 export function Breadcrumb({ items }: Props) {
-  const schemaItems = items.map((item, idx) => ({
-    "@type": "ListItem",
-    position: idx + 1,
-    name: item.label,
-    ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
-  }));
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: schemaItems,
-  };
-
   return (
     <>
-      <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema(items)} />
       <nav aria-label="Breadcrumb" className="text-sm text-slate-500 mb-4">
         <ol className="flex items-center gap-1.5 flex-wrap">
           {items.map((item, idx) => {

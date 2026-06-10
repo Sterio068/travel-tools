@@ -42,7 +42,7 @@ export function RelatedTools({ currentHref, relatedHrefs }: Props) {
           <Link
             key={tool.href}
             href={tool.href}
-            className="flex items-start gap-3 bg-white rounded-[14px] p-4 shadow-[0_1px_3px_rgba(8,51,68,0.06)] hover:shadow-[0_8px_20px_rgba(8,51,68,0.1)] transition-shadow"
+            className="flex items-start gap-3 rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-4 transition-colors hover:border-brand-300 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
           >
             <span className="text-2xl shrink-0">{tool.icon}</span>
             <div className="min-w-0">

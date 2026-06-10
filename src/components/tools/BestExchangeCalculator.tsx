@@ -114,7 +114,7 @@ export default function BestExchangeCalculator() {
                 }`}
               >
                 {isWinner && (
-                  <span className="absolute -top-3 left-4 rounded-full bg-brand-500 px-3 py-0.5 text-xs font-bold text-white">
+                  <span className="absolute -top-3 left-4 rounded-full bg-brand-500 px-3 py-0.5 text-xs font-bold text-slate-50">
                     最佳方案
                   </span>
                 )}

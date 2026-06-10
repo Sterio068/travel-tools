@@ -78,7 +78,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {article.title}
           </h1>
           <div className="flex items-center gap-4 text-sm text-slate-500">
-            <span>{article.publishedAt}</span>
+            <span>發布 {article.publishedAt}</span>
+            {article.updatedAt && article.updatedAt !== article.publishedAt && (
+              <span>更新 {article.updatedAt}</span>
+            )}
             <span>{article.readingMinutes} 分鐘閱讀</span>
           </div>
         </header>
@@ -105,7 +108,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <Link
                 key={r.slug}
                 href={`/articles/${r.slug}`}
-                className="bg-white rounded-[16px] p-4 shadow-[0_1px_3px_rgba(8,51,68,0.06)] hover:shadow-[0_10px_25px_rgba(8,51,68,0.1)] transition-shadow"
+                className="rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-4 transition-colors hover:border-brand-300 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <h3 className="font-bold text-brand-900 text-sm line-clamp-2">{r.title}</h3>
                 <p className="text-xs text-slate-500 mt-1">{r.readingMinutes} 分鐘閱讀</p>

@@ -13,13 +13,13 @@ export default function NotFound() {
       <div className="flex justify-center gap-3">
         <Link
           href="/"
-          className="inline-flex items-center px-6 py-3 rounded-[12px] bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors"
+          className="inline-flex items-center px-6 py-3 rounded-[8px] bg-brand-500 text-slate-50 font-semibold hover:bg-brand-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
         >
           回首頁
         </Link>
         <Link
           href="/tools"
-          className="inline-flex items-center px-6 py-3 rounded-[12px] bg-white text-brand-600 font-semibold border border-brand-200 hover:bg-brand-50 transition-colors"
+          className="inline-flex items-center px-6 py-3 rounded-[8px] bg-[var(--color-surface-card)] text-brand-600 font-semibold border border-brand-200 hover:bg-brand-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
         >
           瀏覽工具
         </Link>

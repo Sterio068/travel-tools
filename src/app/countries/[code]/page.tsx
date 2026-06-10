@@ -142,7 +142,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
       </div>
 
       {/* 速查卡 */}
-      <div className="bg-white rounded-[16px] p-6 md:p-8 shadow-[0_1px_3px_rgba(8,51,68,0.06)] mb-6">
+      <div className="mb-6 rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-6 md:p-8">
         <h2 className="text-xl font-bold text-brand-900 mb-4">基本資訊</h2>
         <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
           <InfoRow icon="🛂" label="簽證" value={country.visaRequired ? "需辦簽證" : `免簽 ${country.visaFreeDays || ""} 天`} />
@@ -161,7 +161,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
       </div>
 
       {/* 退稅資訊 */}
-      <div className="bg-white rounded-[16px] p-6 md:p-8 shadow-[0_1px_3px_rgba(8,51,68,0.06)] mb-6">
+      <div className="mb-6 rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-6 md:p-8">
         <h2 className="text-xl font-bold text-brand-900 mb-4">🧾 退稅資訊</h2>
         {country.taxRefund.available ? (
           <div className="space-y-2">
@@ -186,7 +186,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
 
       {/* 相關航空行李規定 */}
       {relatedAirlines.length > 0 && (
-        <div className="bg-white rounded-[16px] p-6 md:p-8 shadow-[0_1px_3px_rgba(8,51,68,0.06)] mb-6">
+        <div className="mb-6 rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-6 md:p-8">
           <h2 className="text-xl font-bold text-brand-900 mb-4">🧳 飛{country.nameZh}的航空行李規定</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -226,42 +226,42 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
       )}
 
       {/* 工具連結 */}
-      <div className="bg-white rounded-[16px] p-6 shadow-[0_1px_3px_rgba(8,51,68,0.06)] mb-6">
+      <div className="mb-6 rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)] p-6">
         <h2 className="text-xl font-bold text-brand-900 mb-4">相關工具</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <Link href="/tools/currency" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/currency" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">💱</span>
             <span className="text-sm font-medium text-brand-700">{country.currencyName}匯率換算</span>
           </Link>
-          <Link href="/tools/timezone" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/timezone" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">🕐</span>
             <span className="text-sm font-medium text-brand-700">{country.nameZh}時差查詢</span>
           </Link>
-          <Link href="/tools/baggage" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/baggage" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">🧳</span>
             <span className="text-sm font-medium text-brand-700">行李規定速查</span>
           </Link>
-          <Link href="/tools/budget" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/budget" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">💰</span>
             <span className="text-sm font-medium text-brand-700">{country.nameZh}旅遊預算</span>
           </Link>
-          <Link href="/tools/plug-voltage" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/plug-voltage" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">🔌</span>
             <span className="text-sm font-medium text-brand-700">插頭電壓查詢</span>
           </Link>
-          <Link href="/tools/packing-list" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/packing-list" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">📋</span>
             <span className="text-sm font-medium text-brand-700">打包清單</span>
           </Link>
-          <Link href="/tools/visa" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/visa" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">🛂</span>
             <span className="text-sm font-medium text-brand-700">{country.nameZh}簽證查詢</span>
           </Link>
-          <Link href="/tools/tax-refund" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/tax-refund" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">🧾</span>
             <span className="text-sm font-medium text-brand-700">{country.nameZh}退稅計算</span>
           </Link>
-          <Link href="/tools/flight-time" className="p-3 rounded-[12px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
+          <Link href="/tools/flight-time" className="p-3 rounded-[8px] bg-brand-50 hover:bg-brand-100 text-center transition-colors">
             <span className="text-2xl block mb-1">✈️</span>
             <span className="text-sm font-medium text-brand-700">飛{country.nameZh}幾小時？</span>
           </Link>

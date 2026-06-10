@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://example.com";
+const DEFAULT_SITE_URL = "https://tripkit.org";
 
 function cleanEnvValue(value: string | undefined): string | undefined {
   const cleaned = value?.trim();
@@ -24,14 +24,8 @@ const AD_SLOT_ENV_BY_KEY: Record<string, string | undefined> = {
   "article-bottom": process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE_BOTTOM,
   "country-btm": process.env.NEXT_PUBLIC_ADSENSE_SLOT_COUNTRY_BOTTOM,
   "country-mid": process.env.NEXT_PUBLIC_ADSENSE_SLOT_COUNTRY_MIDDLE,
-  "tax-refund-bottom": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TAX_REFUND_BOTTOM,
-  "tax-refund-top": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TAX_REFUND_TOP,
-  "tip-bottom": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TIP_BOTTOM,
-  "tip-top": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TIP_TOP,
   "tool-bottom": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOL_BOTTOM,
   "tool-result": process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOL_RESULT,
-  "visa-bottom": process.env.NEXT_PUBLIC_ADSENSE_SLOT_VISA_BOTTOM,
-  "visa-top": process.env.NEXT_PUBLIC_ADSENSE_SLOT_VISA_TOP,
 };
 
 export const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);

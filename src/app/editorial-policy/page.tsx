@@ -16,7 +16,7 @@ export default function EditorialPolicyPage() {
       </h1>
 
       <div className="space-y-6 text-brand-800 text-base md:text-lg leading-relaxed">
-        <p>最後更新日期：2026 年 4 月 30 日</p>
+        <p>最後更新日期：2026 年 5 月 25 日</p>
         <p>
           旅遊實用工具站以台灣旅客的行前準備需求為核心，整理匯率、簽證、時差、行李、退稅、插頭電壓等資訊。
           我們的目標是提供好理解、可查證、方便使用的旅遊工具與文章，但所有資訊仍可能因各國政策或服務條款變動而調整。
@@ -31,6 +31,13 @@ export default function EditorialPolicyPage() {
             <li>匯率與時區資料 API，以及銀行或金融機構公開資料</li>
             <li>實際旅遊情境整理、讀者回報與人工查核</li>
           </ul>
+          <p className="mt-3">
+            完整來源索引請見{" "}
+            <a href="/sources" className="font-semibold text-brand-600 hover:underline">
+              資料來源
+            </a>
+            。
+          </p>
         </section>
 
         <section>
@@ -41,6 +48,15 @@ export default function EditorialPolicyPage() {
           </p>
           <p className="mt-3">
             文章和工具頁的資訊僅供旅遊規劃參考。實際出發、購買、申請或通關前，請以官方網站、航空公司、銀行、保險公司或主管機關的最新公告為準。
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold text-brand-900 mt-8 mb-4">
+            內容不做的承諾
+          </h2>
+          <p>
+            本站不保證所有國家、航空公司、銀行、保險或退稅規則都能即時同步，也不代替正式申請、理賠、通關或法律判斷。若一項資訊會影響能否出發、是否能登機、是否能入境或是否能獲得理賠，讀者應在使用本站後再查官方來源。
           </p>
         </section>
 

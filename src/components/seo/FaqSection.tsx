@@ -16,7 +16,7 @@ export function FaqSection({ title = "常見問題", faqs }: FaqSectionProps) {
           {faqs.map((f, i) => (
             <details
               key={i}
-              className="group bg-white rounded-[16px] shadow-[0_1px_3px_rgba(8,51,68,0.06)] overflow-hidden"
+              className="group overflow-hidden rounded-[8px] border border-brand-100 bg-[var(--color-surface-card)]"
             >
               <summary className="flex items-center justify-between cursor-pointer p-5 font-semibold text-brand-900 list-none">
                 <span>{f.question}</span>

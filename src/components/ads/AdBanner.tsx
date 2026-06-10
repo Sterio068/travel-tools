@@ -41,7 +41,7 @@ export function AdBanner({
     if (process.env.NODE_ENV === "development") {
       return (
         <div
-          className={`my-6 p-4 rounded-[12px] border-2 border-dashed border-brand-200 bg-brand-50/30 text-center text-xs text-slate-400 ${className}`}
+          className={`my-6 p-4 rounded-[8px] border-2 border-dashed border-brand-200 bg-brand-50/30 text-center text-xs text-slate-400 ${className}`}
           aria-label="廣告位置"
         >
           [Ad · {format}]
