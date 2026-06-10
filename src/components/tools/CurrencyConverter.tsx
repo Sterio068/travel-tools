@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { COUNTRIES } from "@/data/countries";
 import { convertCurrency } from "@/lib/calculations/currency";
 import { STATIC_EXCHANGE_RATES } from "@/data/constants";
@@ -17,20 +17,32 @@ export default function CurrencyConverter() {
   const [amount, setAmount] = useState("1000");
   const [direction, setDirection] = useState<"twdToForeign" | "foreignToTwd">("twdToForeign");
   const [liveRates, setLiveRates] = useState<Record<string, number> | null>(null);
-  const [rateSource, setRateSource] = useState<string>("static");
+  const [rateStatus, setRateStatus] = useState<"loading" | "live" | "fallback">("loading");
 
-  useEffect(() => {
-    fetch("/api/exchange-rates")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.rates) {
-          setLiveRates(data.rates);
-          setRateSource(data.source);
-        }
-      })
-      .catch(() => {});
+  const loadRates = useCallback(async () => {
+    setRateStatus("loading");
+    try {
+      const res = await fetch("/api/exchange-rates");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (data.source === "api" && data.rates) {
+        setLiveRates(data.rates);
+        setRateStatus("live");
+      } else {
+        setLiveRates(null);
+        setRateStatus("fallback");
+      }
+    } catch {
+      setLiveRates(null);
+      setRateStatus("fallback");
+    }
   }, []);
 
+  useEffect(() => {
+    loadRates();
+  }, [loadRates]);
+
+  const isLoadingRates = rateStatus === "loading";
   const rates = liveRates || STATIC_EXCHANGE_RATES;
 
   const country = useMemo(
@@ -71,6 +83,7 @@ export default function CurrencyConverter() {
             <Button
               variant="ghost"
               size="sm"
+              disabled={isLoadingRates}
               onClick={() => setDirection((d) => d === "twdToForeign" ? "foreignToTwd" : "twdToForeign")}
             >
               ⇄ 切換
@@ -93,6 +106,7 @@ export default function CurrencyConverter() {
                 key={val}
                 variant="ghost"
                 size="sm"
+                disabled={isLoadingRates}
                 onClick={() => { setAmount(String(val)); setDirection("twdToForeign"); }}
               >
                 {val.toLocaleString()} TWD
@@ -103,22 +117,51 @@ export default function CurrencyConverter() {
       </Card>
 
       <Card className="bg-brand-50/70 border-brand-200">
-        <div className="text-center space-y-3">
-          <p className="text-sm text-slate-500">換算結果</p>
-          <p className="text-4xl font-extrabold text-brand-600">
-            {toSymbol} {formatMoney(result.result)}
-          </p>
-          <div className="pt-3 border-t border-brand-100">
-            <p className="text-xs text-slate-500">
-              匯率：1 {country.currency} ≈{" "}
-              <span className="font-semibold text-gold-600">{formatRate(result.rate)}</span>{" "}
-              TWD
-            </p>
-            <p className="text-xs text-slate-400 mt-1">
-              {rateSource === "api" ? "匯率每小時自動更新" : "匯率僅供參考，實際以銀行牌告為準"}
-            </p>
+        {isLoadingRates ? (
+          <div className="text-center space-y-3" role="status" aria-label="匯率載入中">
+            <p className="text-sm text-slate-500">換算結果</p>
+            <div className="animate-pulse space-y-3">
+              <div className="mx-auto h-10 w-48 rounded-lg bg-brand-100" />
+              <div className="pt-3 border-t border-brand-100 space-y-2">
+                <div className="mx-auto h-3 w-40 rounded bg-brand-100" />
+                <div className="mx-auto h-3 w-32 rounded bg-brand-100" />
+              </div>
+            </div>
+            <p className="text-xs text-slate-400">正在取得最新匯率…</p>
           </div>
-        </div>
+        ) : (
+          <div className="text-center space-y-3">
+            <p className="text-sm text-slate-500">換算結果</p>
+            <p className="text-4xl font-extrabold text-brand-600">
+              {toSymbol} {formatMoney(result.result)}
+            </p>
+            <div className="pt-3 border-t border-brand-100">
+              <p className="text-xs text-slate-500">
+                匯率：1 {country.currency} ≈{" "}
+                <span className="font-semibold text-gold-600">{formatRate(result.rate)}</span>{" "}
+                TWD
+              </p>
+              <p className="text-xs text-slate-400 mt-1">
+                {rateStatus === "live" ? "匯率每小時自動更新" : "匯率僅供參考，實際以銀行牌告為準"}
+              </p>
+            </div>
+            {rateStatus === "fallback" && (
+              <div className="mt-2 flex flex-col items-center gap-2 rounded-lg border border-gold-100 bg-gold-50/60 px-4 py-3 sm:flex-row sm:justify-between">
+                <p className="text-xs text-slate-600 text-left">
+                  即時匯率暫時無法取得，目前改用昨日牌告匯率。
+                </p>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  disabled={isLoadingRates}
+                  onClick={loadRates}
+                >
+                  重試
+                </Button>
+              </div>
+            )}
+          </div>
+        )}
       </Card>
     </div>
   );
