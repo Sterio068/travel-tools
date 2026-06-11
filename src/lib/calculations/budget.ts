@@ -8,6 +8,10 @@ export function calculateBudget(
   travelers: number,
   style: "budget" | "moderate" | "luxury",
 ): BudgetEstimate | null {
+  if (!Number.isFinite(days) || !Number.isFinite(travelers) || days <= 0 || travelers <= 0) {
+    return null;
+  }
+
   const country = COUNTRIES.find((c) => c.code === countryCode);
   const dailyRef = DAILY_BUDGET_REFERENCE[countryCode];
   const flightRef = FLIGHT_COST_REFERENCE[countryCode];

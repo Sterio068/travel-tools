@@ -3,7 +3,7 @@ import type { CurrencyConversion } from "@/types";
 
 /**
  * 匯率換算：TWD → 外幣 或 外幣 → TWD
- * rate = 1 TWD 可換多少外幣（如 JPY 4.67 表示 1 TWD = 4.67 JPY）
+ * rate table stores TWD needed for 1 unit of foreign currency.
  */
 export function convertCurrency(
   amount: number,
