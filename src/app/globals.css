@@ -56,6 +56,11 @@
   /* 背景 */
   --color-surface: #F0FDFA;
   --color-surface-card: #FEFEFC;
+  --color-surface-muted: #E6FFFA;
+  --color-border-soft: #CFFAFE;
+  --color-text-primary: #083344;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
 
   /* 字體 */
   --font-sans: var(--font-noto-sans-tc), var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -75,6 +80,72 @@
 :root {
   --background: #F0FDFA;
   --foreground: #083344;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #081826;
+    --foreground: #E5F7F9;
+
+    --color-brand-50: #092A36;
+    --color-brand-100: #0E3D4A;
+    --color-brand-200: #155467;
+    --color-brand-300: #1B7188;
+    --color-brand-400: #2DB6D1;
+    --color-brand-500: #67E8F9;
+    --color-brand-600: #8DECF7;
+    --color-brand-700: #B6F3FA;
+    --color-brand-800: #CFFAFE;
+    --color-brand-900: #ECFEFF;
+
+    --color-accent-50: #3A1C0D;
+    --color-accent-100: #5C2A0F;
+    --color-accent-200: #7C3B13;
+    --color-accent-300: #B65E1D;
+    --color-accent-400: #FB923C;
+    --color-accent-500: #FDBA74;
+    --color-accent-600: #FED7AA;
+    --color-accent-700: #FFEDD5;
+    --color-accent-800: #FFF7ED;
+    --color-accent-900: #FFF7ED;
+
+    --color-gold-50: #332708;
+    --color-gold-100: #4A3909;
+    --color-gold-500: #FACC15;
+    --color-gold-600: #FDE68A;
+
+    --color-warning-50: #332708;
+    --color-warning-100: #4A3909;
+    --color-warning-500: #FBBF24;
+    --color-warning-600: #FDE68A;
+
+    --color-danger-50: #3A1014;
+    --color-danger-100: #5F171F;
+    --color-danger-500: #F87171;
+    --color-danger-600: #FCA5A5;
+
+    --color-slate-50: #F8FAFC;
+    --color-slate-100: #E2E8F0;
+    --color-slate-200: #CBD5E1;
+    --color-slate-300: #94A3B8;
+    --color-slate-500: #CBD5E1;
+    --color-slate-700: #E2E8F0;
+    --color-slate-800: #F1F5F9;
+    --color-slate-900: #F8FAFC;
+
+    --color-surface: #081826;
+    --color-surface-card: #102332;
+    --color-surface-muted: #0D2C3A;
+    --color-border-soft: #1B4E60;
+    --color-text-primary: #ECFEFF;
+    --color-text-secondary: #D6EEF2;
+    --color-text-muted: #A8C8D0;
+
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.18);
+    --shadow-card-hover: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
 }
 
 html,
@@ -86,12 +157,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input,
+select,
+textarea {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  input,
+  select,
+  textarea {
+    color-scheme: dark;
+  }
+}
+
 @utility container-page {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
 }
 
 @utility card-base {
-  @apply bg-[var(--color-surface-card)] rounded-[8px] border border-brand-100 shadow-[var(--shadow-card)] transition-colors;
+  @apply bg-[var(--color-surface-card)] rounded-[8px] border border-[var(--color-border-soft)] shadow-[var(--shadow-card)] transition-colors;
 }
 
 @utility card-hover {
