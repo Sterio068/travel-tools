@@ -38,6 +38,19 @@ describe("article tool recommendations", () => {
     expect(recommendations[0].cta).toBe("比較換匯");
   });
 
+  it("routes eSIM articles to the eSIM comparison tool first", () => {
+    const recommendations = getArticleToolRecommendations(
+      articleBySlug("esim-vs-sim-card"),
+    );
+
+    expect(recommendations.map((item) => item.href)).toEqual([
+      "/tools/esim",
+      "/tools/plug-voltage",
+      "/tools/power-bank",
+    ]);
+    expect(recommendations[0].cta).toBe("比較上網方案");
+  });
+
   it("keeps every article recommendation bounded and unique", () => {
     for (const article of ARTICLES) {
       const recommendations = getArticleToolRecommendations(article);

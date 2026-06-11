@@ -16,8 +16,8 @@ export const QUICK_TASKS = [
   { label: "手提行李限制", href: "/tools/baggage" },
   { label: "台灣護照免簽", href: "/tools/visa" },
   { label: "日本插頭", href: "/tools/plug-voltage" },
+  { label: "eSIM 上網", href: "/tools/esim" },
   { label: "行動電源上飛機", href: "/tools/power-bank" },
-  { label: "美國小費", href: "/tools/tip" },
 ] as const;
 
 export const TOOL_GROUPS: ToolGroup[] = [
@@ -44,7 +44,7 @@ export const TOOL_GROUPS: ToolGroup[] = [
     shortTitle: "入境",
     summary: "先看簽證、國家速查、海關規定與保險，降低登機前或入境時卡關的風險。",
     primaryHref: "/tools/visa",
-    hrefs: ["/tools/visa", "/countries", "/tools/customs", "/tools/travel-insurance"],
+    hrefs: ["/tools/visa", "/countries", "/tools/customs", "/tools/travel-insurance", "/tools/esim"],
   },
   {
     id: "packing",

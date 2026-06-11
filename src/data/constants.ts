@@ -79,6 +79,13 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["旅平險", "旅遊保險", "不便險", "保險比較"],
   },
   {
+    name: "eSIM 上網方案比較",
+    description: "依目的地、天數、用量與裝置條件比較 eSIM、實體 SIM、Wi-Fi 分享器",
+    href: "/tools/esim",
+    icon: "📶",
+    keywords: ["eSIM", "出國上網", "SIM卡", "WiFi分享器", "旅遊網路"],
+  },
+  {
     name: "行程花費追蹤",
     description: "旅途中即時記帳，分類統計花費",
     href: "/tools/expense-tracker",

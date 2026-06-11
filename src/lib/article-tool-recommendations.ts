@@ -21,7 +21,7 @@ const CATEGORY_TOOL_HREFS = {
   destination: ["/countries", "/tools/timezone", "/tools/plug-voltage"],
   tips: ["/tools/packing-list", "/tools/customs", "/tools/budget"],
   safety: ["/tools/travel-insurance", "/tools/visa", "/tools/baggage"],
-  tech: ["/tools/plug-voltage", "/tools/power-bank", "/tools/packing-list"],
+  tech: ["/tools/esim", "/tools/plug-voltage", "/tools/power-bank"],
 } satisfies Record<ArticleCategory, readonly string[]>;
 
 const ARTICLE_TOOL_OVERRIDES: Partial<Record<string, readonly string[]>> = {
@@ -37,7 +37,7 @@ const ARTICLE_TOOL_OVERRIDES: Partial<Record<string, readonly string[]>> = {
   "korea-entry-requirements": ["/tools/visa", "/tools/flight-time", "/tools/customs"],
   "jr-pass-guide-2026": ["/tools/flight-time", "/tools/budget", "/tools/timezone"],
   "passport-lost-overseas": ["/tools/travel-insurance", "/tools/visa", "/countries"],
-  "esim-vs-sim-card": ["/tools/plug-voltage", "/tools/power-bank", "/tools/packing-list"],
+  "esim-vs-sim-card": ["/tools/esim", "/tools/plug-voltage", "/tools/power-bank"],
 };
 
 const TOOL_CTA_COPY: Record<string, { reason: string; cta: string }> = {
@@ -72,6 +72,10 @@ const TOOL_CTA_COPY: Record<string, { reason: string; cta: string }> = {
   "/tools/travel-insurance": {
     reason: "對照旅平險、不便險與信用卡保障，補齊出發前風險缺口。",
     cta: "檢查保險",
+  },
+  "/tools/esim": {
+    reason: "依目的地、天數、用量與裝置條件比較 eSIM、實體 SIM 與 Wi-Fi 分享器。",
+    cta: "比較上網方案",
   },
   "/tools/baggage": {
     reason: "依航空公司確認手提、託運尺寸與重量，減少現場加價。",

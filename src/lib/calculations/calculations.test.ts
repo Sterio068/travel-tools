@@ -5,6 +5,7 @@ import { generatePackingList } from "./packing";
 import { calculateTaxRefund } from "./tax-refund";
 import { convertTime, getTimezoneInfo } from "./timezone";
 import { calculateTip } from "./tip";
+import { compareEsimPlans } from "./esim";
 
 describe("travel calculation helpers", () => {
   describe("calculateBudget", () => {
@@ -161,6 +162,75 @@ describe("travel calculation helpers", () => {
         totalWithTip: 1120,
       });
       expect(calculateTip("XX", 1000)).toBeNull();
+    });
+  });
+
+  describe("compareEsimPlans", () => {
+    it("recommends eSIM for solo travelers with supported devices", () => {
+      const result = compareEsimPlans({
+        countryCode: "JP",
+        days: 5,
+        travelers: 1,
+        dataUse: "standard",
+        deviceSupportsEsim: true,
+        needsLocalCalls: false,
+        hotspotDevices: 0,
+      });
+
+      expect(result).toMatchObject({
+        countryCode: "JP",
+        days: 5,
+        travelers: 1,
+        totalDataGB: 13,
+        dailyDataGB: 2.5,
+      });
+      expect(result?.recommendation.type).toBe("esim");
+      expect(result?.plans.map((plan) => plan.type)).toContain("physical-sim");
+      expect(result?.plans.map((plan) => plan.type)).toContain("wifi-router");
+    });
+
+    it("moves away from eSIM when the device does not support it", () => {
+      const result = compareEsimPlans({
+        countryCode: "US",
+        days: 7,
+        travelers: 1,
+        dataUse: "light",
+        deviceSupportsEsim: false,
+        needsLocalCalls: true,
+        hotspotDevices: 0,
+      });
+
+      expect(result?.recommendation.type).toBe("physical-sim");
+      expect(result?.plans.find((plan) => plan.type === "esim")?.fitScore).toBeLessThan(50);
+    });
+
+    it("favors Wi-Fi routers for shared heavy multi-device trips", () => {
+      const result = compareEsimPlans({
+        countryCode: "KR",
+        days: 4,
+        travelers: 4,
+        dataUse: "heavy",
+        deviceSupportsEsim: true,
+        needsLocalCalls: false,
+        hotspotDevices: 3,
+      });
+
+      expect(result?.totalDataGB).toBe(80);
+      expect(result?.recommendation.type).toBe("wifi-router");
+    });
+
+    it("returns null for invalid trip sizes", () => {
+      expect(
+        compareEsimPlans({
+          countryCode: "JP",
+          days: 0,
+          travelers: 1,
+          dataUse: "standard",
+          deviceSupportsEsim: true,
+          needsLocalCalls: false,
+          hotspotDevices: 0,
+        }),
+      ).toBeNull();
     });
   });
 });

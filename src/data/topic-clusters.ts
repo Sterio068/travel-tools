@@ -313,7 +313,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       "插頭電壓、網路方案與交通支付方式已準備。",
       "小費文化與緊急電話已記下。",
     ],
-    toolHrefs: ["/countries", "/tools/timezone", "/tools/plug-voltage", "/tools/tip", "/tools/flight-time"],
+    toolHrefs: ["/countries", "/tools/timezone", "/tools/esim", "/tools/plug-voltage", "/tools/flight-time"],
     articleSlugs: [
       "tokyo-free-travel-guide",
       "seoul-free-travel-guide",
