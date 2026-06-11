@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { AnalyticsEvents } from "@/components/analytics/AnalyticsEvents";
+import { WebVitalsReporter } from "@/components/analytics/WebVitalsReporter";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ADSENSE_CLIENT_ID, GOOGLE_ANALYTICS_ID, SITE_URL } from "@/lib/env";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
@@ -110,6 +111,7 @@ export default function RootLayout({
           />
         )}
         <AnalyticsEvents />
+        <WebVitalsReporter />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

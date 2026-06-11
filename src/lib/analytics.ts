@@ -16,6 +16,13 @@ export interface NavigationEventClassification {
   contentGroup: string;
 }
 
+export interface WebVitalMetric {
+  id: string;
+  name: string;
+  value: number;
+  rating?: string;
+}
+
 function cleanAnalyticsParams(params: AnalyticsParams): Record<string, string | number | boolean> {
   return Object.fromEntries(
     Object.entries(params)
@@ -41,6 +48,34 @@ export function trackEvent(eventName: string, params: AnalyticsParams = {}) {
   }
 
   window.dataLayer.push({ event: eventName, ...payload });
+}
+
+function currentPathname() {
+  return typeof window === "undefined" ? "/" : window.location.pathname || "/";
+}
+
+function cleanAnalyticsPath(path: string) {
+  const pathname = path.split(/[?#]/, 1)[0]?.trim();
+  return pathname || "/";
+}
+
+export function trackWebVital(metric: WebVitalMetric, path = currentPathname()) {
+  if (
+    typeof window === "undefined" ||
+    !metric.name.trim() ||
+    !metric.id.trim() ||
+    !Number.isFinite(metric.value)
+  ) {
+    return;
+  }
+
+  trackEvent("web_vital", {
+    name: metric.name,
+    value: metric.value,
+    rating: metric.rating || "unknown",
+    id: metric.id,
+    path: cleanAnalyticsPath(path),
+  });
 }
 
 export function classifyInternalNavigation(pathname: string): NavigationEventClassification | undefined {
