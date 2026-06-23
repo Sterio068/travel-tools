@@ -1,0 +1,9 @@
+{
+  "_comment": "site-kit exact-shared primitives — must stay byte-identical across travel-tools, taiwan-labor-tools, pet-care-platform. Update in ALL THREE repos together when intentionally changing a shared primitive.",
+  "sha256": {
+    "AdSlot.tsx": "e048136eb08c6d6144e0bdcd1a697b8d090fad0a43c17b42d6ef0141a3038c9b",
+    "EmptyState.tsx": "f09d88964a019006f52bbadb9e641f8f21458f485e8aefe72e640d8dbc147476",
+    "ErrorCard.tsx": "65988e74b1ab7dc6aae01fc01d682c7fefe213eda455e0b9945557de5c518e85",
+    "Breadcrumb.tsx": "4591d70e834dd7b6363d40c2102468ac5b5b4f27ea1318a420fb1ecd4d7c938a"
+  }
+}
